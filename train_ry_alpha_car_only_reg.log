@@ -1,0 +1,2647 @@
+Traceback (most recent call last):
+  File "train_end2end.py", line 178, in <module>
+    lr=args.lr, lr_step=args.lr_step)
+  File "train_end2end.py", line 32, in train_net
+    sym = eval('get_' + args.network + '_train')()
+  File "/home/hustxly/Car/Car_Orientation/mx-rcnn/rcnn/symbol/symbol_vgg.py", line 347, in get_vgg_train
+    rpn_bbox_loss = mx.sym.MakeLoss(name='rpn_bbox_loss', data=rpn_bbox_loss__, grad_scale=1.0 / config.TRAIN.RPN_BATCH_SIZE)
+NameError: global name 'rpn_bbox_loss__' is not defined
+{'EPS': 1e-14,
+ 'IMAGE_STRIDE': 0,
+ 'PIXEL_MEANS': array([[[ 123.68 ,  116.779,  103.939]]]),
+ 'SCALES': [(600, 1000)],
+ 'TEST': {'BATCH_IMAGES': 1,
+          'HAS_RPN': False,
+          'NMS': 0.3,
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000},
+ 'TRAIN': {'BATCH_IMAGES': 1,
+           'BATCH_ROIS': 128,
+           'BBOX_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZATION_PRECOMPUTED': True,
+           'BBOX_REGRESSION_THRESH': 0.5,
+           'BBOX_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_WEIGHTS': array([ 1.,  1.,  1.,  1.]),
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'END2END': True,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'RPN_BATCH_SIZE': 256,
+           'RPN_BBOX_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 16,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 6000,
+           'RPN_PRE_NMS_TOP_N': 12000}}
+Traceback (most recent call last):
+  File "train_end2end.py", line 178, in <module>
+    lr=args.lr, lr_step=args.lr_step)
+  File "train_end2end.py", line 43, in train_net
+    imdb = eval(args.dataset)(args.image_set, args.root_path, args.dataset_path)
+  File "<string>", line 1, in <module>
+NameError: name 'Kitti' is not defined
+{'EPS': 1e-14,
+ 'IMAGE_STRIDE': 0,
+ 'PIXEL_MEANS': array([[[ 123.68 ,  116.779,  103.939]]]),
+ 'SCALES': [(600, 1000)],
+ 'TEST': {'BATCH_IMAGES': 1,
+          'HAS_RPN': False,
+          'NMS': 0.3,
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000},
+ 'TRAIN': {'BATCH_IMAGES': 1,
+           'BATCH_ROIS': 128,
+           'BBOX_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZATION_PRECOMPUTED': True,
+           'BBOX_REGRESSION_THRESH': 0.5,
+           'BBOX_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_WEIGHTS': array([ 1.,  1.,  1.,  1.]),
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'END2END': True,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'RPN_BATCH_SIZE': 256,
+           'RPN_BBOX_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 16,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 6000,
+           'RPN_PRE_NMS_TOP_N': 12000}}
+Traceback (most recent call last):
+  File "train_end2end.py", line 178, in <module>
+    lr=args.lr, lr_step=args.lr_step)
+  File "train_end2end.py", line 43, in train_net
+    imdb = eval(args.dataset)(args.image_set, args.root_path, args.dataset_path)
+  File "/home/hustxly/Car/Car_Orientation/mx-rcnn/rcnn/dataset/kitti.py", line 29, in __init__
+    self.image_set_index = self.load_image_set_index()
+  File "/home/hustxly/Car/Car_Orientation/mx-rcnn/rcnn/dataset/kitti.py", line 39, in load_image_set_index
+    assert os.path.exists(image_set_index_file), 'Path does not exist: {}'.format(image_set_index_file)
+AssertionError: Path does not exist: data/kitti/imglists/train_ry_alpha_car_only.lst
+{'EPS': 1e-14,
+ 'IMAGE_STRIDE': 0,
+ 'PIXEL_MEANS': array([[[ 123.68 ,  116.779,  103.939]]]),
+ 'SCALES': [(600, 1000)],
+ 'TEST': {'BATCH_IMAGES': 1,
+          'HAS_RPN': False,
+          'NMS': 0.3,
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000},
+ 'TRAIN': {'BATCH_IMAGES': 1,
+           'BATCH_ROIS': 128,
+           'BBOX_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZATION_PRECOMPUTED': True,
+           'BBOX_REGRESSION_THRESH': 0.5,
+           'BBOX_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_WEIGHTS': array([ 1.,  1.,  1.,  1.]),
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'END2END': True,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'RPN_BATCH_SIZE': 256,
+           'RPN_BBOX_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 16,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 6000,
+           'RPN_PRE_NMS_TOP_N': 12000}}
+num_images 3424
+kitti_train_ry_alpha_car_only gt roidb loaded from data/cache/kitti_train_ry_alpha_car_only_gt_roidb.pkl
+append flipped images to roidb
+600
+providing maximum shape [('data', (1, 3, 1000, 1000)), ('gt_boxes', (1, 100, 5))] [('label', (1, 34596)), ('bbox_target', (1, 36, 62, 62)), ('bbox_weight', (1, 36, 62, 62))]
+output shape
+{'bbox_loss_reshape_output': (1L, 128L, 84L),
+ 'blockgrad0_output': (1L, 128L),
+ 'cls_prob_reshape_output': (1L, 128L, 21L),
+ 'rpn_bbox_loss_output': (1L, 36L, 18L, 62L),
+ 'rpn_cls_prob_output': (1L, 2L, 162L, 62L)}
+[07:58:24] src/operator/./cudnn_convolution-inl.h:55: Running performance tests to find the best convolution algorithm, this can take a while...
+INFO:root:Epoch[1] Batch [20]	Speed: 2.23 samples/sec	Train-RPNAcc=0.684896,	RPNLogLoss=0.671247,	RPNL1Loss=0.494725,	RCNNAcc=0.168527,	RCNNLogLoss=2.884160,	RCNNL1Loss=0.328817,	
+INFO:root:Epoch[1] Batch [40]	Speed: 2.28 samples/sec	Train-RPNAcc=0.700362,	RPNLogLoss=0.667373,	RPNL1Loss=0.458141,	RCNNAcc=0.473323,	RCNNLogLoss=2.441511,	RCNNL1Loss=0.347707,	
+{'EPS': 1e-14,
+ 'IMAGE_STRIDE': 0,
+ 'PIXEL_MEANS': array([[[ 123.68 ,  116.779,  103.939]]]),
+ 'SCALES': [(600, 1000)],
+ 'TEST': {'BATCH_IMAGES': 1,
+          'HAS_RPN': False,
+          'NMS': 0.3,
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000},
+ 'TRAIN': {'BATCH_IMAGES': 1,
+           'BATCH_ROIS': 128,
+           'BBOX_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZATION_PRECOMPUTED': True,
+           'BBOX_REGRESSION_THRESH': 0.5,
+           'BBOX_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_WEIGHTS': array([ 1.,  1.,  1.,  1.]),
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'END2END': True,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'RPN_BATCH_SIZE': 256,
+           'RPN_BBOX_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 16,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 6000,
+           'RPN_PRE_NMS_TOP_N': 12000}}
+num_images 3424
+kitti_train_ry_alpha_car_only gt roidb loaded from data/cache/kitti_train_ry_alpha_car_only_gt_roidb.pkl
+append flipped images to roidb
+600
+providing maximum shape [('data', (1, 3, 1000, 1000)), ('gt_boxes', (1, 100, 5))] [('label', (1, 34596)), ('bbox_target', (1, 36, 62, 62)), ('bbox_weight', (1, 36, 62, 62))]
+[08:02:42] /home/hustxly/mxnet/dmlc-core/include/dmlc/./logging.h:300: [08:02:42] src/ndarray/ndarray.cc:665: Check failed: fi->Read(&header) Invalid NDArray file format
+
+Stack trace returned 21 entries:
+[bt] (0) /home/hustxly/mxnet/python/mxnet/../../lib/libmxnet.so(_ZN4dmlc15LogMessageFatalD1Ev+0x3c) [0x7fea2b46e71c]
+[bt] (1) /home/hustxly/mxnet/python/mxnet/../../lib/libmxnet.so(_ZN5mxnet7NDArray4LoadEPN4dmlc6StreamEPSt6vectorIS0_SaIS0_EEPS4_ISsSaISsEE+0xa5) [0x7fea2bd38ec5]
+[bt] (2) /home/hustxly/mxnet/python/mxnet/../../lib/libmxnet.so(MXNDArrayLoad+0x215) [0x7fea2bc4f225]
+[bt] (3) /usr/lib/x86_64-linux-gnu/libffi.so.6(ffi_call_unix64+0x4c) [0x7fead499dadc]
+[bt] (4) /usr/lib/x86_64-linux-gnu/libffi.so.6(ffi_call+0x1fc) [0x7fead499d40c]
+[bt] (5) /usr/lib/python2.7/lib-dynload/_ctypes.x86_64-linux-gnu.so(_ctypes_callproc+0x48e) [0x7fead4bb45fe]
+[bt] (6) /usr/lib/python2.7/lib-dynload/_ctypes.x86_64-linux-gnu.so(+0x15f9e) [0x7fead4bb5f9e]
+[bt] (7) python(PyEval_EvalFrameEx+0x965) [0x499be5]
+[bt] (8) python(PyEval_EvalCodeEx+0x2ac) [0x4a090c]
+[bt] (9) python(PyEval_EvalFrameEx+0x18c5) [0x49ab45]
+[bt] (10) python(PyEval_EvalFrameEx+0xc72) [0x499ef2]
+[bt] (11) python(PyEval_EvalCodeEx+0x2ac) [0x4a090c]
+[bt] (12) python(PyEval_EvalFrameEx+0x7d2) [0x499a52]
+[bt] (13) python(PyEval_EvalCodeEx+0x2ac) [0x4a090c]
+[bt] (14) python(PyEval_EvalFrameEx+0x7d2) [0x499a52]
+[bt] (15) python() [0x4a1634]
+[bt] (16) python(PyRun_FileExFlags+0x92) [0x44e4a5]
+[bt] (17) python(PyRun_SimpleFileExFlags+0x2ee) [0x44ec9f]
+[bt] (18) python(Py_Main+0xb5e) [0x44f904]
+[bt] (19) /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf5) [0x7fead5f2bf45]
+[bt] (20) python() [0x578c4e]
+
+Traceback (most recent call last):
+  File "train_end2end.py", line 178, in <module>
+    lr=args.lr, lr_step=args.lr_step)
+  File "train_end2end.py", line 59, in train_net
+    arg_params, aux_params = load_param(pretrained, epoch, convert=True)
+  File "/home/hustxly/Car/Car_Orientation/mx-rcnn/rcnn/utils/load_model.py", line 49, in load_param
+    arg_params, aux_params = load_checkpoint(prefix, epoch)
+  File "/home/hustxly/Car/Car_Orientation/mx-rcnn/rcnn/utils/load_model.py", line 15, in load_checkpoint
+    save_dict = mx.nd.load('%s-%04d.params' % (prefix, epoch))
+  File "/home/hustxly/mxnet/python/mxnet/ndarray.py", line 1247, in load
+    ctypes.byref(names)))
+  File "/home/hustxly/mxnet/python/mxnet/base.py", line 75, in check_call
+    raise MXNetError(py_str(_LIB.MXGetLastError()))
+mxnet.base.MXNetError: [08:02:42] src/ndarray/ndarray.cc:665: Check failed: fi->Read(&header) Invalid NDArray file format
+
+Stack trace returned 21 entries:
+[bt] (0) /home/hustxly/mxnet/python/mxnet/../../lib/libmxnet.so(_ZN4dmlc15LogMessageFatalD1Ev+0x3c) [0x7fea2b46e71c]
+[bt] (1) /home/hustxly/mxnet/python/mxnet/../../lib/libmxnet.so(_ZN5mxnet7NDArray4LoadEPN4dmlc6StreamEPSt6vectorIS0_SaIS0_EEPS4_ISsSaISsEE+0xa5) [0x7fea2bd38ec5]
+[bt] (2) /home/hustxly/mxnet/python/mxnet/../../lib/libmxnet.so(MXNDArrayLoad+0x215) [0x7fea2bc4f225]
+[bt] (3) /usr/lib/x86_64-linux-gnu/libffi.so.6(ffi_call_unix64+0x4c) [0x7fead499dadc]
+[bt] (4) /usr/lib/x86_64-linux-gnu/libffi.so.6(ffi_call+0x1fc) [0x7fead499d40c]
+[bt] (5) /usr/lib/python2.7/lib-dynload/_ctypes.x86_64-linux-gnu.so(_ctypes_callproc+0x48e) [0x7fead4bb45fe]
+[bt] (6) /usr/lib/python2.7/lib-dynload/_ctypes.x86_64-linux-gnu.so(+0x15f9e) [0x7fead4bb5f9e]
+[bt] (7) python(PyEval_EvalFrameEx+0x965) [0x499be5]
+[bt] (8) python(PyEval_EvalCodeEx+0x2ac) [0x4a090c]
+[bt] (9) python(PyEval_EvalFrameEx+0x18c5) [0x49ab45]
+[bt] (10) python(PyEval_EvalFrameEx+0xc72) [0x499ef2]
+[bt] (11) python(PyEval_EvalCodeEx+0x2ac) [0x4a090c]
+[bt] (12) python(PyEval_EvalFrameEx+0x7d2) [0x499a52]
+[bt] (13) python(PyEval_EvalCodeEx+0x2ac) [0x4a090c]
+[bt] (14) python(PyEval_EvalFrameEx+0x7d2) [0x499a52]
+[bt] (15) python() [0x4a1634]
+[bt] (16) python(PyRun_FileExFlags+0x92) [0x44e4a5]
+[bt] (17) python(PyRun_SimpleFileExFlags+0x2ee) [0x44ec9f]
+[bt] (18) python(Py_Main+0xb5e) [0x44f904]
+[bt] (19) /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf5) [0x7fead5f2bf45]
+[bt] (20) python() [0x578c4e]
+
+train_end2end.sh: 5: train_end2end.sh: --prefix: not found
+{'EPS': 1e-14,
+ 'IMAGE_STRIDE': 0,
+ 'PIXEL_MEANS': array([[[ 123.68 ,  116.779,  103.939]]]),
+ 'SCALES': [(600, 1000)],
+ 'TEST': {'BATCH_IMAGES': 1,
+          'HAS_RPN': False,
+          'NMS': 0.3,
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000},
+ 'TRAIN': {'BATCH_IMAGES': 1,
+           'BATCH_ROIS': 128,
+           'BBOX_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZATION_PRECOMPUTED': True,
+           'BBOX_REGRESSION_THRESH': 0.5,
+           'BBOX_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_WEIGHTS': array([ 1.,  1.,  1.,  1.]),
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'END2END': True,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'RPN_BATCH_SIZE': 256,
+           'RPN_BBOX_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 16,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 6000,
+           'RPN_PRE_NMS_TOP_N': 12000}}
+num_images 3424
+kitti_train_ry_alpha_car_only gt roidb loaded from data/cache/kitti_train_ry_alpha_car_only_gt_roidb.pkl
+append flipped images to roidb
+600
+providing maximum shape [('data', (1, 3, 1000, 1000)), ('gt_boxes', (1, 100, 5))] [('label', (1, 34596)), ('bbox_target', (1, 36, 62, 62)), ('bbox_weight', (1, 36, 62, 62))]
+[08:07:10] include/dmlc/logging.h:300: [08:07:10] src/io/local_filesys.cc:154: Check failed: allow_null  LocalFileSystem: fail to open "/data01/hustxly/model/faster_rcnn/kitti_ry_cls_input_up_2/ry_alpha_car_only_reg-0001.params"
+
+Stack trace returned 21 entries:
+[bt] (0) /home/hustxly/mxnet/python/mxnet/../../lib/libmxnet.so(_ZN4dmlc2io15LocalFileSystem4OpenERKNS0_3URIEPKcb+0x459) [0x7fa38425d969]
+[bt] (1) /home/hustxly/mxnet/python/mxnet/../../lib/libmxnet.so(_ZN4dmlc6Stream6CreateEPKcS2_b+0x3a) [0x7fa384255d6a]
+[bt] (2) /home/hustxly/mxnet/python/mxnet/../../lib/libmxnet.so(MXNDArrayLoad+0x203) [0x7fa383ee8213]
+[bt] (3) /usr/lib/x86_64-linux-gnu/libffi.so.6(ffi_call_unix64+0x4c) [0x7fa42cc36adc]
+[bt] (4) /usr/lib/x86_64-linux-gnu/libffi.so.6(ffi_call+0x1fc) [0x7fa42cc3640c]
+[bt] (5) /usr/lib/python2.7/lib-dynload/_ctypes.x86_64-linux-gnu.so(_ctypes_callproc+0x48e) [0x7fa42ce4d5fe]
+[bt] (6) /usr/lib/python2.7/lib-dynload/_ctypes.x86_64-linux-gnu.so(+0x15f9e) [0x7fa42ce4ef9e]
+[bt] (7) python(PyEval_EvalFrameEx+0x965) [0x499be5]
+[bt] (8) python(PyEval_EvalCodeEx+0x2ac) [0x4a090c]
+[bt] (9) python(PyEval_EvalFrameEx+0x18c5) [0x49ab45]
+[bt] (10) python(PyEval_EvalFrameEx+0xc72) [0x499ef2]
+[bt] (11) python(PyEval_EvalCodeEx+0x2ac) [0x4a090c]
+[bt] (12) python(PyEval_EvalFrameEx+0x7d2) [0x499a52]
+[bt] (13) python(PyEval_EvalCodeEx+0x2ac) [0x4a090c]
+[bt] (14) python(PyEval_EvalFrameEx+0x7d2) [0x499a52]
+[bt] (15) python() [0x4a1634]
+[bt] (16) python(PyRun_FileExFlags+0x92) [0x44e4a5]
+[bt] (17) python(PyRun_SimpleFileExFlags+0x2ee) [0x44ec9f]
+[bt] (18) python(Py_Main+0xb5e) [0x44f904]
+[bt] (19) /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf5) [0x7fa42e1c4f45]
+[bt] (20) python() [0x578c4e]
+
+Traceback (most recent call last):
+  File "train_end2end.py", line 178, in <module>
+    lr=args.lr, lr_step=args.lr_step)
+  File "train_end2end.py", line 59, in train_net
+    arg_params, aux_params = load_param(pretrained, epoch, convert=True)
+  File "/home/hustxly/Car/Car_Orientation/mx-rcnn/rcnn/utils/load_model.py", line 49, in load_param
+    arg_params, aux_params = load_checkpoint(prefix, epoch)
+  File "/home/hustxly/Car/Car_Orientation/mx-rcnn/rcnn/utils/load_model.py", line 15, in load_checkpoint
+    save_dict = mx.nd.load('%s-%04d.params' % (prefix, epoch))
+  File "/home/hustxly/mxnet/python/mxnet/ndarray.py", line 1247, in load
+    ctypes.byref(names)))
+  File "/home/hustxly/mxnet/python/mxnet/base.py", line 75, in check_call
+    raise MXNetError(py_str(_LIB.MXGetLastError()))
+mxnet.base.MXNetError: [08:07:10] src/io/local_filesys.cc:154: Check failed: allow_null  LocalFileSystem: fail to open "/data01/hustxly/model/faster_rcnn/kitti_ry_cls_input_up_2/ry_alpha_car_only_reg-0001.params"
+
+Stack trace returned 21 entries:
+[bt] (0) /home/hustxly/mxnet/python/mxnet/../../lib/libmxnet.so(_ZN4dmlc2io15LocalFileSystem4OpenERKNS0_3URIEPKcb+0x459) [0x7fa38425d969]
+[bt] (1) /home/hustxly/mxnet/python/mxnet/../../lib/libmxnet.so(_ZN4dmlc6Stream6CreateEPKcS2_b+0x3a) [0x7fa384255d6a]
+[bt] (2) /home/hustxly/mxnet/python/mxnet/../../lib/libmxnet.so(MXNDArrayLoad+0x203) [0x7fa383ee8213]
+[bt] (3) /usr/lib/x86_64-linux-gnu/libffi.so.6(ffi_call_unix64+0x4c) [0x7fa42cc36adc]
+[bt] (4) /usr/lib/x86_64-linux-gnu/libffi.so.6(ffi_call+0x1fc) [0x7fa42cc3640c]
+[bt] (5) /usr/lib/python2.7/lib-dynload/_ctypes.x86_64-linux-gnu.so(_ctypes_callproc+0x48e) [0x7fa42ce4d5fe]
+[bt] (6) /usr/lib/python2.7/lib-dynload/_ctypes.x86_64-linux-gnu.so(+0x15f9e) [0x7fa42ce4ef9e]
+[bt] (7) python(PyEval_EvalFrameEx+0x965) [0x499be5]
+[bt] (8) python(PyEval_EvalCodeEx+0x2ac) [0x4a090c]
+[bt] (9) python(PyEval_EvalFrameEx+0x18c5) [0x49ab45]
+[bt] (10) python(PyEval_EvalFrameEx+0xc72) [0x499ef2]
+[bt] (11) python(PyEval_EvalCodeEx+0x2ac) [0x4a090c]
+[bt] (12) python(PyEval_EvalFrameEx+0x7d2) [0x499a52]
+[bt] (13) python(PyEval_EvalCodeEx+0x2ac) [0x4a090c]
+[bt] (14) python(PyEval_EvalFrameEx+0x7d2) [0x499a52]
+[bt] (15) python() [0x4a1634]
+[bt] (16) python(PyRun_FileExFlags+0x92) [0x44e4a5]
+[bt] (17) python(PyRun_SimpleFileExFlags+0x2ee) [0x44ec9f]
+[bt] (18) python(Py_Main+0xb5e) [0x44f904]
+[bt] (19) /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf5) [0x7fa42e1c4f45]
+[bt] (20) python() [0x578c4e]
+
+{'EPS': 1e-14,
+ 'IMAGE_STRIDE': 0,
+ 'PIXEL_MEANS': array([[[ 123.68 ,  116.779,  103.939]]]),
+ 'SCALES': [(600, 1000)],
+ 'TEST': {'BATCH_IMAGES': 1,
+          'HAS_RPN': False,
+          'NMS': 0.3,
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000},
+ 'TRAIN': {'BATCH_IMAGES': 1,
+           'BATCH_ROIS': 128,
+           'BBOX_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZATION_PRECOMPUTED': True,
+           'BBOX_REGRESSION_THRESH': 0.5,
+           'BBOX_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_WEIGHTS': array([ 1.,  1.,  1.,  1.]),
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'END2END': True,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'RPN_BATCH_SIZE': 256,
+           'RPN_BBOX_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 16,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 6000,
+           'RPN_PRE_NMS_TOP_N': 12000}}
+num_images 3424
+kitti_train_ry_alpha_car_only gt roidb loaded from data/cache/kitti_train_ry_alpha_car_only_gt_roidb.pkl
+append flipped images to roidb
+600
+providing maximum shape [('data', (1, 3, 1000, 1000)), ('gt_boxes', (1, 100, 5))] [('label', (1, 34596)), ('bbox_target', (1, 36, 62, 62)), ('bbox_weight', (1, 36, 62, 62))]
+[08:07:50] include/dmlc/logging.h:300: [08:07:50] src/io/local_filesys.cc:154: Check failed: allow_null  LocalFileSystem: fail to open "/data01/hustxly/model/faster_rcnn/kitti_ry_cls_input_up_2/ry_alpha_car_only_reg-0001.params"
+
+Stack trace returned 21 entries:
+[bt] (0) /home/hustxly/mxnet/python/mxnet/../../lib/libmxnet.so(_ZN4dmlc2io15LocalFileSystem4OpenERKNS0_3URIEPKcb+0x459) [0x7f2fab1f7969]
+[bt] (1) /home/hustxly/mxnet/python/mxnet/../../lib/libmxnet.so(_ZN4dmlc6Stream6CreateEPKcS2_b+0x3a) [0x7f2fab1efd6a]
+[bt] (2) /home/hustxly/mxnet/python/mxnet/../../lib/libmxnet.so(MXNDArrayLoad+0x203) [0x7f2faae82213]
+[bt] (3) /usr/lib/x86_64-linux-gnu/libffi.so.6(ffi_call_unix64+0x4c) [0x7f3053bd0adc]
+[bt] (4) /usr/lib/x86_64-linux-gnu/libffi.so.6(ffi_call+0x1fc) [0x7f3053bd040c]
+[bt] (5) /usr/lib/python2.7/lib-dynload/_ctypes.x86_64-linux-gnu.so(_ctypes_callproc+0x48e) [0x7f3053de75fe]
+[bt] (6) /usr/lib/python2.7/lib-dynload/_ctypes.x86_64-linux-gnu.so(+0x15f9e) [0x7f3053de8f9e]
+[bt] (7) python(PyEval_EvalFrameEx+0x965) [0x499be5]
+[bt] (8) python(PyEval_EvalCodeEx+0x2ac) [0x4a090c]
+[bt] (9) python(PyEval_EvalFrameEx+0x18c5) [0x49ab45]
+[bt] (10) python(PyEval_EvalFrameEx+0xc72) [0x499ef2]
+[bt] (11) python(PyEval_EvalCodeEx+0x2ac) [0x4a090c]
+[bt] (12) python(PyEval_EvalFrameEx+0x7d2) [0x499a52]
+[bt] (13) python(PyEval_EvalCodeEx+0x2ac) [0x4a090c]
+[bt] (14) python(PyEval_EvalFrameEx+0x7d2) [0x499a52]
+[bt] (15) python() [0x4a1634]
+[bt] (16) python(PyRun_FileExFlags+0x92) [0x44e4a5]
+[bt] (17) python(PyRun_SimpleFileExFlags+0x2ee) [0x44ec9f]
+[bt] (18) python(Py_Main+0xb5e) [0x44f904]
+[bt] (19) /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf5) [0x7f305515ef45]
+[bt] (20) python() [0x578c4e]
+
+Traceback (most recent call last):
+  File "train_end2end.py", line 178, in <module>
+    lr=args.lr, lr_step=args.lr_step)
+  File "train_end2end.py", line 59, in train_net
+    arg_params, aux_params = load_param(pretrained, epoch, convert=True)
+  File "/home/hustxly/Car/Car_Orientation/mx-rcnn/rcnn/utils/load_model.py", line 49, in load_param
+    arg_params, aux_params = load_checkpoint(prefix, epoch)
+  File "/home/hustxly/Car/Car_Orientation/mx-rcnn/rcnn/utils/load_model.py", line 15, in load_checkpoint
+    save_dict = mx.nd.load('%s-%04d.params' % (prefix, epoch))
+  File "/home/hustxly/mxnet/python/mxnet/ndarray.py", line 1247, in load
+    ctypes.byref(names)))
+  File "/home/hustxly/mxnet/python/mxnet/base.py", line 75, in check_call
+    raise MXNetError(py_str(_LIB.MXGetLastError()))
+mxnet.base.MXNetError: [08:07:50] src/io/local_filesys.cc:154: Check failed: allow_null  LocalFileSystem: fail to open "/data01/hustxly/model/faster_rcnn/kitti_ry_cls_input_up_2/ry_alpha_car_only_reg-0001.params"
+
+Stack trace returned 21 entries:
+[bt] (0) /home/hustxly/mxnet/python/mxnet/../../lib/libmxnet.so(_ZN4dmlc2io15LocalFileSystem4OpenERKNS0_3URIEPKcb+0x459) [0x7f2fab1f7969]
+[bt] (1) /home/hustxly/mxnet/python/mxnet/../../lib/libmxnet.so(_ZN4dmlc6Stream6CreateEPKcS2_b+0x3a) [0x7f2fab1efd6a]
+[bt] (2) /home/hustxly/mxnet/python/mxnet/../../lib/libmxnet.so(MXNDArrayLoad+0x203) [0x7f2faae82213]
+[bt] (3) /usr/lib/x86_64-linux-gnu/libffi.so.6(ffi_call_unix64+0x4c) [0x7f3053bd0adc]
+[bt] (4) /usr/lib/x86_64-linux-gnu/libffi.so.6(ffi_call+0x1fc) [0x7f3053bd040c]
+[bt] (5) /usr/lib/python2.7/lib-dynload/_ctypes.x86_64-linux-gnu.so(_ctypes_callproc+0x48e) [0x7f3053de75fe]
+[bt] (6) /usr/lib/python2.7/lib-dynload/_ctypes.x86_64-linux-gnu.so(+0x15f9e) [0x7f3053de8f9e]
+[bt] (7) python(PyEval_EvalFrameEx+0x965) [0x499be5]
+[bt] (8) python(PyEval_EvalCodeEx+0x2ac) [0x4a090c]
+[bt] (9) python(PyEval_EvalFrameEx+0x18c5) [0x49ab45]
+[bt] (10) python(PyEval_EvalFrameEx+0xc72) [0x499ef2]
+[bt] (11) python(PyEval_EvalCodeEx+0x2ac) [0x4a090c]
+[bt] (12) python(PyEval_EvalFrameEx+0x7d2) [0x499a52]
+[bt] (13) python(PyEval_EvalCodeEx+0x2ac) [0x4a090c]
+[bt] (14) python(PyEval_EvalFrameEx+0x7d2) [0x499a52]
+[bt] (15) python() [0x4a1634]
+[bt] (16) python(PyRun_FileExFlags+0x92) [0x44e4a5]
+[bt] (17) python(PyRun_SimpleFileExFlags+0x2ee) [0x44ec9f]
+[bt] (18) python(Py_Main+0xb5e) [0x44f904]
+[bt] (19) /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf5) [0x7f305515ef45]
+[bt] (20) python() [0x578c4e]
+
+{'EPS': 1e-14,
+ 'IMAGE_STRIDE': 0,
+ 'PIXEL_MEANS': array([[[ 123.68 ,  116.779,  103.939]]]),
+ 'SCALES': [(600, 1000)],
+ 'TEST': {'BATCH_IMAGES': 1,
+          'HAS_RPN': False,
+          'NMS': 0.3,
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000},
+ 'TRAIN': {'BATCH_IMAGES': 1,
+           'BATCH_ROIS': 128,
+           'BBOX_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZATION_PRECOMPUTED': True,
+           'BBOX_REGRESSION_THRESH': 0.5,
+           'BBOX_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_WEIGHTS': array([ 1.,  1.,  1.,  1.]),
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'END2END': True,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'RPN_BATCH_SIZE': 256,
+           'RPN_BBOX_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 16,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 6000,
+           'RPN_PRE_NMS_TOP_N': 12000}}
+num_images 3424
+kitti_train_ry_alpha_car_only gt roidb loaded from data/cache/kitti_train_ry_alpha_car_only_gt_roidb.pkl
+append flipped images to roidb
+600
+providing maximum shape [('data', (1, 3, 1000, 1000)), ('gt_boxes', (1, 100, 5))] [('label', (1, 34596)), ('bbox_target', (1, 36, 62, 62)), ('bbox_weight', (1, 36, 62, 62))]
+output shape
+{'bbox_loss_reshape_output': (1L, 128L, 84L),
+ 'blockgrad0_output': (1L, 128L),
+ 'cls_prob_reshape_output': (1L, 128L, 21L),
+ 'rpn_bbox_loss_output': (1L, 36L, 18L, 62L),
+ 'rpn_cls_prob_output': (1L, 2L, 162L, 62L)}
+[08:08:30] src/operator/./cudnn_convolution-inl.h:55: Running performance tests to find the best convolution algorithm, this can take a while...
+INFO:root:Epoch[1] Batch [20]	Speed: 2.39 samples/sec	Train-RPNAcc=0.695499,	RPNLogLoss=0.670038,	RPNL1Loss=0.508623,	RCNNAcc=0.164807,	RCNNLogLoss=2.885022,	RCNNL1Loss=0.461403,	
+INFO:root:Epoch[1] Batch [40]	Speed: 1.86 samples/sec	Train-RPNAcc=0.699219,	RPNLogLoss=0.668081,	RPNL1Loss=0.528435,	RCNNAcc=0.455793,	RCNNLogLoss=2.461794,	RCNNL1Loss=0.435806,	
+INFO:root:Epoch[1] Batch [60]	Speed: 2.29 samples/sec	Train-RPNAcc=0.718366,	RPNLogLoss=0.664963,	RPNL1Loss=0.481326,	RCNNAcc=0.587346,	RCNNLogLoss=2.053479,	RCNNL1Loss=0.399580,	
+INFO:root:Epoch[1] Batch [80]	Speed: 2.21 samples/sec	Train-RPNAcc=0.724537,	RPNLogLoss=0.662042,	RPNL1Loss=0.501861,	RCNNAcc=0.647666,	RCNNLogLoss=1.776625,	RCNNL1Loss=0.406845,	
+INFO:root:Epoch[1] Batch [100]	Speed: 2.26 samples/sec	Train-RPNAcc=0.732635,	RPNLogLoss=0.658382,	RPNL1Loss=0.498918,	RCNNAcc=0.687268,	RCNNLogLoss=1.567237,	RCNNL1Loss=0.398295,	
+INFO:root:Epoch[1] Batch [120]	Speed: 1.93 samples/sec	Train-RPNAcc=0.739443,	RPNLogLoss=0.654609,	RPNL1Loss=0.500548,	RCNNAcc=0.715134,	RCNNLogLoss=1.416785,	RCNNL1Loss=0.394066,	
+INFO:root:Epoch[1] Batch [140]	Speed: 2.31 samples/sec	Train-RPNAcc=0.748449,	RPNLogLoss=0.649856,	RPNL1Loss=0.480898,	RCNNAcc=0.734043,	RCNNLogLoss=1.304172,	RCNNL1Loss=0.392019,	
+{'EPS': 1e-14,
+ 'IMAGE_STRIDE': 0,
+ 'PIXEL_MEANS': array([[[ 123.68 ,  116.779,  103.939]]]),
+ 'SCALES': [(600, 1000)],
+ 'TEST': {'BATCH_IMAGES': 1,
+          'HAS_RPN': False,
+          'NMS': 0.3,
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000},
+ 'TRAIN': {'BATCH_IMAGES': 1,
+           'BATCH_ROIS': 128,
+           'BBOX_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZATION_PRECOMPUTED': True,
+           'BBOX_REGRESSION_THRESH': 0.5,
+           'BBOX_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_WEIGHTS': array([ 1.,  1.,  1.,  1.]),
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'END2END': True,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'RPN_BATCH_SIZE': 256,
+           'RPN_BBOX_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 16,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 6000,
+           'RPN_PRE_NMS_TOP_N': 12000}}
+num_images 3424
+kitti_train_ry_alpha_car_only gt roidb loaded from data/cache/kitti_train_ry_alpha_car_only_gt_roidb.pkl
+append flipped images to roidb
+600
+providing maximum shape [('data', (1, 3, 1000, 1000)), ('gt_boxes', (1, 100, 5))] [('label', (1, 34596)), ('bbox_target', (1, 36, 62, 62)), ('bbox_weight', (1, 36, 62, 62))]
+output shape
+{'bbox_loss_reshape_output': (1L, 128L, 84L),
+ 'blockgrad0_output': (1L, 128L),
+ 'cls_prob_reshape_output': (1L, 128L, 21L),
+ 'rpn_bbox_loss_output': (1L, 36L, 18L, 62L),
+ 'rpn_cls_prob_output': (1L, 2L, 162L, 62L)}
+Traceback (most recent call last):
+  File "train_end2end.py", line 178, in <module>
+    lr=args.lr, lr_step=args.lr_step)
+  File "train_end2end.py", line 89, in train_net
+    'shape inconsistent for ' + k + ' inferred ' + str(arg_shape_dict[k]) + ' provided ' + str(arg_params[k].shape)
+AssertionError: shape inconsistent for fc7_weight inferred (1024L, 4096L) provided (4096L, 4096L)
+{'EPS': 1e-14,
+ 'IMAGE_STRIDE': 0,
+ 'PIXEL_MEANS': array([[[ 123.68 ,  116.779,  103.939]]]),
+ 'SCALES': [(600, 1000)],
+ 'TEST': {'BATCH_IMAGES': 1,
+          'HAS_RPN': False,
+          'NMS': 0.3,
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000},
+ 'TRAIN': {'BATCH_IMAGES': 1,
+           'BATCH_ROIS': 128,
+           'BBOX_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZATION_PRECOMPUTED': True,
+           'BBOX_REGRESSION_THRESH': 0.5,
+           'BBOX_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_WEIGHTS': array([ 1.,  1.,  1.,  1.]),
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'END2END': True,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'RPN_BATCH_SIZE': 256,
+           'RPN_BBOX_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 16,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 6000,
+           'RPN_PRE_NMS_TOP_N': 12000}}
+num_images 3424
+kitti_train_ry_alpha_car_only gt roidb loaded from data/cache/kitti_train_ry_alpha_car_only_gt_roidb.pkl
+append flipped images to roidb
+600
+providing maximum shape [('data', (1, 3, 1000, 1000)), ('gt_boxes', (1, 100, 5))] [('label', (1, 34596)), ('bbox_target', (1, 36, 62, 62)), ('bbox_weight', (1, 36, 62, 62))]
+output shape
+{'bbox_loss_reshape_output': (1L, 128L, 84L),
+ 'blockgrad0_output': (1L, 128L),
+ 'cls_prob_reshape_output': (1L, 128L, 21L),
+ 'rpn_bbox_loss_output': (1L, 36L, 18L, 62L),
+ 'rpn_cls_prob_output': (1L, 2L, 162L, 62L)}
+[08:31:34] src/operator/./cudnn_convolution-inl.h:55: Running performance tests to find the best convolution algorithm, this can take a while...
+{'EPS': 1e-14,
+ 'IMAGE_STRIDE': 0,
+ 'PIXEL_MEANS': array([[[ 123.68 ,  116.779,  103.939]]]),
+ 'SCALES': [(600, 1000)],
+ 'TEST': {'BATCH_IMAGES': 1,
+          'HAS_RPN': False,
+          'NMS': 0.3,
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000},
+ 'TRAIN': {'BATCH_IMAGES': 1,
+           'BATCH_ROIS': 128,
+           'BBOX_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZATION_PRECOMPUTED': True,
+           'BBOX_REGRESSION_THRESH': 0.5,
+           'BBOX_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_WEIGHTS': array([ 1.,  1.,  1.,  1.]),
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'END2END': True,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'RPN_BATCH_SIZE': 256,
+           'RPN_BBOX_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 16,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 6000,
+           'RPN_PRE_NMS_TOP_N': 12000}}
+num_images 3424
+kitti_train_ry_alpha_car_only gt roidb loaded from data/cache/kitti_train_ry_alpha_car_only_gt_roidb.pkl
+append flipped images to roidb
+600
+providing maximum shape [('data', (1, 3, 1000, 1000)), ('gt_boxes', (1, 100, 5))] [('label', (1, 34596)), ('bbox_target', (1, 36, 62, 62)), ('bbox_weight', (1, 36, 62, 62))]
+output shape
+{'bbox_loss_reshape_output': (1L, 128L, 84L),
+ 'blockgrad0_output': (1L, 128L),
+ 'cls_prob_reshape_output': (1L, 128L, 21L),
+ 'rpn_bbox_loss_output': (1L, 36L, 18L, 62L),
+ 'rpn_cls_prob_output': (1L, 2L, 162L, 62L)}
+[08:42:10] src/operator/./cudnn_convolution-inl.h:55: Running performance tests to find the best convolution algorithm, this can take a while...
+{'EPS': 1e-14,
+ 'IMAGE_STRIDE': 0,
+ 'PIXEL_MEANS': array([[[ 123.68 ,  116.779,  103.939]]]),
+ 'SCALES': [(600, 1000)],
+ 'TEST': {'BATCH_IMAGES': 1,
+          'HAS_RPN': False,
+          'NMS': 0.3,
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000},
+ 'TRAIN': {'BATCH_IMAGES': 1,
+           'BATCH_ROIS': 128,
+           'BBOX_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZATION_PRECOMPUTED': True,
+           'BBOX_REGRESSION_THRESH': 0.5,
+           'BBOX_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_WEIGHTS': array([ 1.,  1.,  1.,  1.]),
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'END2END': True,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'RPN_BATCH_SIZE': 256,
+           'RPN_BBOX_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 16,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 6000,
+           'RPN_PRE_NMS_TOP_N': 12000}}
+num_images 3424
+kitti_train_ry_alpha_car_only gt roidb loaded from data/cache/kitti_train_ry_alpha_car_only_gt_roidb.pkl
+append flipped images to roidb
+600
+providing maximum shape [('data', (1, 3, 1000, 1000)), ('gt_boxes', (1, 100, 5))] [('label', (1, 34596)), ('bbox_target', (1, 36, 62, 62)), ('bbox_weight', (1, 36, 62, 62))]
+output shape
+{'bbox_loss_reshape_output': (1L, 128L, 84L),
+ 'blockgrad0_output': (1L, 128L),
+ 'cls_prob_reshape_output': (1L, 128L, 21L),
+ 'rpn_bbox_loss_output': (1L, 36L, 18L, 62L),
+ 'rpn_cls_prob_output': (1L, 2L, 162L, 62L)}
+Traceback (most recent call last):
+  File "train_end2end.py", line 178, in <module>
+    lr=args.lr, lr_step=args.lr_step)
+  File "train_end2end.py", line 89, in train_net
+    'shape inconsistent for ' + k + ' inferred ' + str(arg_shape_dict[k]) + ' provided ' + str(arg_params[k].shape)
+AssertionError: shape inconsistent for fc7_weight inferred (1024L, 4096L) provided (4096L, 4096L)
+{'EPS': 1e-14,
+ 'IMAGE_STRIDE': 0,
+ 'PIXEL_MEANS': array([[[ 123.68 ,  116.779,  103.939]]]),
+ 'SCALES': [(600, 1000)],
+ 'TEST': {'BATCH_IMAGES': 1,
+          'HAS_RPN': False,
+          'NMS': 0.3,
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000},
+ 'TRAIN': {'BATCH_IMAGES': 1,
+           'BATCH_ROIS': 128,
+           'BBOX_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZATION_PRECOMPUTED': True,
+           'BBOX_REGRESSION_THRESH': 0.5,
+           'BBOX_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_WEIGHTS': array([ 1.,  1.,  1.,  1.]),
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'END2END': True,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'RPN_BATCH_SIZE': 256,
+           'RPN_BBOX_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 16,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 6000,
+           'RPN_PRE_NMS_TOP_N': 12000}}
+num_images 3424
+kitti_train_ry_alpha_car_only gt roidb loaded from data/cache/kitti_train_ry_alpha_car_only_gt_roidb.pkl
+append flipped images to roidb
+600
+providing maximum shape [('data', (1, 3, 1000, 1000)), ('gt_boxes', (1, 100, 5))] [('label', (1, 34596)), ('bbox_target', (1, 36, 62, 62)), ('bbox_weight', (1, 36, 62, 62))]
+output shape
+{'bbox_loss_reshape_output': (1L, 128L, 84L),
+ 'blockgrad0_output': (1L, 128L),
+ 'cls_prob_reshape_output': (1L, 128L, 21L),
+ 'rpn_bbox_loss_output': (1L, 36L, 18L, 62L),
+ 'rpn_cls_prob_output': (1L, 2L, 162L, 62L)}
+Traceback (most recent call last):
+  File "train_end2end.py", line 178, in <module>
+    lr=args.lr, lr_step=args.lr_step)
+  File "train_end2end.py", line 89, in train_net
+    'shape inconsistent for ' + k + ' inferred ' + str(arg_shape_dict[k]) + ' provided ' + str(arg_params[k].shape)
+AssertionError: shape inconsistent for fc6_weight inferred (1024L, 25088L) provided (4096L, 25088L)
+{'EPS': 1e-14,
+ 'IMAGE_STRIDE': 0,
+ 'PIXEL_MEANS': array([[[ 123.68 ,  116.779,  103.939]]]),
+ 'SCALES': [(600, 1000)],
+ 'TEST': {'BATCH_IMAGES': 1,
+          'HAS_RPN': False,
+          'NMS': 0.3,
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000},
+ 'TRAIN': {'BATCH_IMAGES': 1,
+           'BATCH_ROIS': 128,
+           'BBOX_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZATION_PRECOMPUTED': True,
+           'BBOX_REGRESSION_THRESH': 0.5,
+           'BBOX_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_WEIGHTS': array([ 1.,  1.,  1.,  1.]),
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'END2END': True,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'RPN_BATCH_SIZE': 256,
+           'RPN_BBOX_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 16,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 6000,
+           'RPN_PRE_NMS_TOP_N': 12000}}
+num_images 3424
+kitti_train_ry_alpha_car_only gt roidb loaded from data/cache/kitti_train_ry_alpha_car_only_gt_roidb.pkl
+append flipped images to roidb
+600
+providing maximum shape [('data', (1, 3, 1000, 1000)), ('gt_boxes', (1, 100, 5))] [('label', (1, 34596)), ('bbox_target', (1, 36, 62, 62)), ('bbox_weight', (1, 36, 62, 62))]
+output shape
+{'bbox_loss_reshape_output': (1L, 128L, 84L),
+ 'blockgrad0_output': (1L, 128L),
+ 'cls_prob_reshape_output': (1L, 128L, 21L),
+ 'rpn_bbox_loss_output': (1L, 36L, 18L, 62L),
+ 'rpn_cls_prob_output': (1L, 2L, 162L, 62L)}
+arg shape
+{'bbox_pred_bias': (84L,),
+ 'bbox_pred_weight': (84L, 1024L),
+ 'bbox_target': (1L, 36L, 18L, 62L),
+ 'bbox_weight': (1L, 36L, 18L, 62L),
+ 'cls_score_bias': (21L,),
+ 'cls_score_weight': (21L, 1024L),
+ 'conv1_1_bias': (64L,),
+ 'conv1_1_weight': (64L, 3L, 3L, 3L),
+ 'conv1_2_bias': (64L,),
+ 'conv1_2_weight': (64L, 64L, 3L, 3L),
+ 'conv2_1_bias': (128L,),
+ 'conv2_1_weight': (128L, 64L, 3L, 3L),
+ 'conv2_2_bias': (128L,),
+ 'conv2_2_weight': (128L, 128L, 3L, 3L),
+ 'conv3_1_bias': (256L,),
+ 'conv3_1_weight': (256L, 128L, 3L, 3L),
+ 'conv3_2_bias': (256L,),
+ 'conv3_2_weight': (256L, 256L, 3L, 3L),
+ 'conv3_3_bias': (256L,),
+ 'conv3_3_weight': (256L, 256L, 3L, 3L),
+ 'conv4_1_bias': (512L,),
+ 'conv4_1_weight': (512L, 256L, 3L, 3L),
+ 'conv4_2_bias': (512L,),
+ 'conv4_2_weight': (512L, 512L, 3L, 3L),
+ 'conv4_3_bias': (512L,),
+ 'conv4_3_weight': (512L, 512L, 3L, 3L),
+ 'conv5_1_bias': (512L,),
+ 'conv5_1_weight': (512L, 512L, 3L, 3L),
+ 'conv5_2_bias': (512L,),
+ 'conv5_2_weight': (512L, 512L, 3L, 3L),
+ 'conv5_3_bias': (512L,),
+ 'conv5_3_weight': (512L, 512L, 3L, 3L),
+ 'data': (1L, 3L, 302L, 1000L),
+ 'fc6_bias': (1024L,),
+ 'fc6_weight': (1024L, 25088L),
+ 'fc7_bias': (1024L,),
+ 'fc7_weight': (1024L, 1024L),
+ 'gt_boxes': (1L, 3L, 5L),
+ 'im_info': (1L, 3L),
+ 'label': (1L, 10044L),
+ 'rpn_bbox_pred_bias': (36L,),
+ 'rpn_bbox_pred_weight': (36L, 512L, 1L, 1L),
+ 'rpn_cls_score_bias': (18L,),
+ 'rpn_cls_score_weight': (18L, 512L, 1L, 1L),
+ 'rpn_conv_3x3_bias': (512L,),
+ 'rpn_conv_3x3_weight': (512L, 512L, 3L, 3L)}
+aux shape
+{}
+Traceback (most recent call last):
+  File "train_end2end.py", line 182, in <module>
+    lr=args.lr, lr_step=args.lr_step)
+  File "train_end2end.py", line 93, in train_net
+    'shape inconsistent for ' + k + ' inferred ' + str(arg_shape_dict[k]) + ' provided ' + str(arg_params[k].shape)
+AssertionError: shape inconsistent for fc6_weight inferred (1024L, 25088L) provided (4096L, 25088L)
+  File "train_end2end.py", line 77
+    arg_params['fc6_bias'] = mx.random.zeros(shape=arg_shape_dict['fc6_bias'])
+    ^
+IndentationError: unexpected indent
+  File "train_end2end.py", line 77
+    arg_params['fc6_bias'] = mx.random.zeros(shape=arg_shape_dict['fc6_bias'])
+    ^
+IndentationError: unexpected indent
+  File "train_end2end.py", line 77
+    arg_params['fc6_bias'] = mx.random.zeros(shape=arg_shape_dict['fc6_bias'])
+    ^
+IndentationError: unexpected indent
+{'EPS': 1e-14,
+ 'IMAGE_STRIDE': 0,
+ 'PIXEL_MEANS': array([[[ 123.68 ,  116.779,  103.939]]]),
+ 'SCALES': [(600, 1000)],
+ 'TEST': {'BATCH_IMAGES': 1,
+          'HAS_RPN': False,
+          'NMS': 0.3,
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000},
+ 'TRAIN': {'BATCH_IMAGES': 1,
+           'BATCH_ROIS': 128,
+           'BBOX_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZATION_PRECOMPUTED': True,
+           'BBOX_REGRESSION_THRESH': 0.5,
+           'BBOX_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_WEIGHTS': array([ 1.,  1.,  1.,  1.]),
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'END2END': True,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'RPN_BATCH_SIZE': 256,
+           'RPN_BBOX_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 16,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 6000,
+           'RPN_PRE_NMS_TOP_N': 12000}}
+num_images 3424
+kitti_train_ry_alpha_car_only gt roidb loaded from data/cache/kitti_train_ry_alpha_car_only_gt_roidb.pkl
+append flipped images to roidb
+600
+providing maximum shape [('data', (1, 3, 1000, 1000)), ('gt_boxes', (1, 100, 5))] [('label', (1, 34596)), ('bbox_target', (1, 36, 62, 62)), ('bbox_weight', (1, 36, 62, 62))]
+output shape
+{'bbox_loss_reshape_output': (1L, 128L, 84L),
+ 'blockgrad0_output': (1L, 128L),
+ 'cls_prob_reshape_output': (1L, 128L, 21L),
+ 'rpn_bbox_loss_output': (1L, 36L, 18L, 62L),
+ 'rpn_cls_prob_output': (1L, 2L, 162L, 62L)}
+arg shape
+{'bbox_pred_bias': (84L,),
+ 'bbox_pred_weight': (84L, 1024L),
+ 'bbox_target': (1L, 36L, 18L, 62L),
+ 'bbox_weight': (1L, 36L, 18L, 62L),
+ 'cls_score_bias': (21L,),
+ 'cls_score_weight': (21L, 1024L),
+ 'conv1_1_bias': (64L,),
+ 'conv1_1_weight': (64L, 3L, 3L, 3L),
+ 'conv1_2_bias': (64L,),
+ 'conv1_2_weight': (64L, 64L, 3L, 3L),
+ 'conv2_1_bias': (128L,),
+ 'conv2_1_weight': (128L, 64L, 3L, 3L),
+ 'conv2_2_bias': (128L,),
+ 'conv2_2_weight': (128L, 128L, 3L, 3L),
+ 'conv3_1_bias': (256L,),
+ 'conv3_1_weight': (256L, 128L, 3L, 3L),
+ 'conv3_2_bias': (256L,),
+ 'conv3_2_weight': (256L, 256L, 3L, 3L),
+ 'conv3_3_bias': (256L,),
+ 'conv3_3_weight': (256L, 256L, 3L, 3L),
+ 'conv4_1_bias': (512L,),
+ 'conv4_1_weight': (512L, 256L, 3L, 3L),
+ 'conv4_2_bias': (512L,),
+ 'conv4_2_weight': (512L, 512L, 3L, 3L),
+ 'conv4_3_bias': (512L,),
+ 'conv4_3_weight': (512L, 512L, 3L, 3L),
+ 'conv5_1_bias': (512L,),
+ 'conv5_1_weight': (512L, 512L, 3L, 3L),
+ 'conv5_2_bias': (512L,),
+ 'conv5_2_weight': (512L, 512L, 3L, 3L),
+ 'conv5_3_bias': (512L,),
+ 'conv5_3_weight': (512L, 512L, 3L, 3L),
+ 'data': (1L, 3L, 302L, 1000L),
+ 'fc6_bias': (1024L,),
+ 'fc6_weight': (1024L, 25088L),
+ 'fc7_bias': (1024L,),
+ 'fc7_weight': (1024L, 1024L),
+ 'gt_boxes': (1L, 1L, 5L),
+ 'im_info': (1L, 3L),
+ 'label': (1L, 10044L),
+ 'rpn_bbox_pred_bias': (36L,),
+ 'rpn_bbox_pred_weight': (36L, 512L, 1L, 1L),
+ 'rpn_cls_score_bias': (18L,),
+ 'rpn_cls_score_weight': (18L, 512L, 1L, 1L),
+ 'rpn_conv_3x3_bias': (512L,),
+ 'rpn_conv_3x3_weight': (512L, 512L, 3L, 3L)}
+aux shape
+{}
+Traceback (most recent call last):
+  File "train_end2end.py", line 186, in <module>
+    lr=args.lr, lr_step=args.lr_step)
+  File "train_end2end.py", line 77, in train_net
+    arg_params['fc6_bias'] = mx.random.zeros(shape=arg_shape_dict['fc6_bias'])
+AttributeError: 'module' object has no attribute 'zeros'
+{'EPS': 1e-14,
+ 'IMAGE_STRIDE': 0,
+ 'PIXEL_MEANS': array([[[ 123.68 ,  116.779,  103.939]]]),
+ 'SCALES': [(600, 1000)],
+ 'TEST': {'BATCH_IMAGES': 1,
+          'HAS_RPN': False,
+          'NMS': 0.3,
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000},
+ 'TRAIN': {'BATCH_IMAGES': 1,
+           'BATCH_ROIS': 128,
+           'BBOX_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZATION_PRECOMPUTED': True,
+           'BBOX_REGRESSION_THRESH': 0.5,
+           'BBOX_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_WEIGHTS': array([ 1.,  1.,  1.,  1.]),
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'END2END': True,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'RPN_BATCH_SIZE': 256,
+           'RPN_BBOX_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 16,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 6000,
+           'RPN_PRE_NMS_TOP_N': 12000}}
+num_images 3424
+kitti_train_ry_alpha_car_only gt roidb loaded from data/cache/kitti_train_ry_alpha_car_only_gt_roidb.pkl
+append flipped images to roidb
+600
+providing maximum shape [('data', (1, 3, 1000, 1000)), ('gt_boxes', (1, 100, 5))] [('label', (1, 34596)), ('bbox_target', (1, 36, 62, 62)), ('bbox_weight', (1, 36, 62, 62))]
+output shape
+{'bbox_loss_reshape_output': (1L, 128L, 84L),
+ 'blockgrad0_output': (1L, 128L),
+ 'cls_prob_reshape_output': (1L, 128L, 21L),
+ 'rpn_bbox_loss_output': (1L, 36L, 18L, 62L),
+ 'rpn_cls_prob_output': (1L, 2L, 162L, 62L)}
+arg shape
+{'bbox_pred_bias': (84L,),
+ 'bbox_pred_weight': (84L, 1024L),
+ 'bbox_target': (1L, 36L, 18L, 62L),
+ 'bbox_weight': (1L, 36L, 18L, 62L),
+ 'cls_score_bias': (21L,),
+ 'cls_score_weight': (21L, 1024L),
+ 'conv1_1_bias': (64L,),
+ 'conv1_1_weight': (64L, 3L, 3L, 3L),
+ 'conv1_2_bias': (64L,),
+ 'conv1_2_weight': (64L, 64L, 3L, 3L),
+ 'conv2_1_bias': (128L,),
+ 'conv2_1_weight': (128L, 64L, 3L, 3L),
+ 'conv2_2_bias': (128L,),
+ 'conv2_2_weight': (128L, 128L, 3L, 3L),
+ 'conv3_1_bias': (256L,),
+ 'conv3_1_weight': (256L, 128L, 3L, 3L),
+ 'conv3_2_bias': (256L,),
+ 'conv3_2_weight': (256L, 256L, 3L, 3L),
+ 'conv3_3_bias': (256L,),
+ 'conv3_3_weight': (256L, 256L, 3L, 3L),
+ 'conv4_1_bias': (512L,),
+ 'conv4_1_weight': (512L, 256L, 3L, 3L),
+ 'conv4_2_bias': (512L,),
+ 'conv4_2_weight': (512L, 512L, 3L, 3L),
+ 'conv4_3_bias': (512L,),
+ 'conv4_3_weight': (512L, 512L, 3L, 3L),
+ 'conv5_1_bias': (512L,),
+ 'conv5_1_weight': (512L, 512L, 3L, 3L),
+ 'conv5_2_bias': (512L,),
+ 'conv5_2_weight': (512L, 512L, 3L, 3L),
+ 'conv5_3_bias': (512L,),
+ 'conv5_3_weight': (512L, 512L, 3L, 3L),
+ 'data': (1L, 3L, 302L, 1000L),
+ 'fc6_bias': (1024L,),
+ 'fc6_weight': (1024L, 25088L),
+ 'fc7_bias': (1024L,),
+ 'fc7_weight': (1024L, 1024L),
+ 'gt_boxes': (1L, 2L, 5L),
+ 'im_info': (1L, 3L),
+ 'label': (1L, 10044L),
+ 'rpn_bbox_pred_bias': (36L,),
+ 'rpn_bbox_pred_weight': (36L, 512L, 1L, 1L),
+ 'rpn_cls_score_bias': (18L,),
+ 'rpn_cls_score_weight': (18L, 512L, 1L, 1L),
+ 'rpn_conv_3x3_bias': (512L,),
+ 'rpn_conv_3x3_weight': (512L, 512L, 3L, 3L)}
+aux shape
+{}
+Traceback (most recent call last):
+  File "train_end2end.py", line 186, in <module>
+    lr=args.lr, lr_step=args.lr_step)
+  File "train_end2end.py", line 78, in train_net
+    arg_params['fc7_weight'] = mx.random.normal(0, 0.01, shape=arg_shape_dict['fc67_weight'])
+KeyError: 'fc67_weight'
+{'EPS': 1e-14,
+ 'IMAGE_STRIDE': 0,
+ 'PIXEL_MEANS': array([[[ 123.68 ,  116.779,  103.939]]]),
+ 'SCALES': [(600, 1000)],
+ 'TEST': {'BATCH_IMAGES': 1,
+          'HAS_RPN': False,
+          'NMS': 0.3,
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000},
+ 'TRAIN': {'BATCH_IMAGES': 1,
+           'BATCH_ROIS': 128,
+           'BBOX_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZATION_PRECOMPUTED': True,
+           'BBOX_REGRESSION_THRESH': 0.5,
+           'BBOX_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_WEIGHTS': array([ 1.,  1.,  1.,  1.]),
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'END2END': True,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'RPN_BATCH_SIZE': 256,
+           'RPN_BBOX_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 16,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 6000,
+           'RPN_PRE_NMS_TOP_N': 12000}}
+num_images 3424
+kitti_train_ry_alpha_car_only gt roidb loaded from data/cache/kitti_train_ry_alpha_car_only_gt_roidb.pkl
+append flipped images to roidb
+600
+providing maximum shape [('data', (1, 3, 1000, 1000)), ('gt_boxes', (1, 100, 5))] [('label', (1, 34596)), ('bbox_target', (1, 36, 62, 62)), ('bbox_weight', (1, 36, 62, 62))]
+output shape
+{'bbox_loss_reshape_output': (1L, 128L, 84L),
+ 'blockgrad0_output': (1L, 128L),
+ 'cls_prob_reshape_output': (1L, 128L, 21L),
+ 'rpn_bbox_loss_output': (1L, 36L, 18L, 62L),
+ 'rpn_cls_prob_output': (1L, 2L, 162L, 62L)}
+arg shape
+{'bbox_pred_bias': (84L,),
+ 'bbox_pred_weight': (84L, 1024L),
+ 'bbox_target': (1L, 36L, 18L, 62L),
+ 'bbox_weight': (1L, 36L, 18L, 62L),
+ 'cls_score_bias': (21L,),
+ 'cls_score_weight': (21L, 1024L),
+ 'conv1_1_bias': (64L,),
+ 'conv1_1_weight': (64L, 3L, 3L, 3L),
+ 'conv1_2_bias': (64L,),
+ 'conv1_2_weight': (64L, 64L, 3L, 3L),
+ 'conv2_1_bias': (128L,),
+ 'conv2_1_weight': (128L, 64L, 3L, 3L),
+ 'conv2_2_bias': (128L,),
+ 'conv2_2_weight': (128L, 128L, 3L, 3L),
+ 'conv3_1_bias': (256L,),
+ 'conv3_1_weight': (256L, 128L, 3L, 3L),
+ 'conv3_2_bias': (256L,),
+ 'conv3_2_weight': (256L, 256L, 3L, 3L),
+ 'conv3_3_bias': (256L,),
+ 'conv3_3_weight': (256L, 256L, 3L, 3L),
+ 'conv4_1_bias': (512L,),
+ 'conv4_1_weight': (512L, 256L, 3L, 3L),
+ 'conv4_2_bias': (512L,),
+ 'conv4_2_weight': (512L, 512L, 3L, 3L),
+ 'conv4_3_bias': (512L,),
+ 'conv4_3_weight': (512L, 512L, 3L, 3L),
+ 'conv5_1_bias': (512L,),
+ 'conv5_1_weight': (512L, 512L, 3L, 3L),
+ 'conv5_2_bias': (512L,),
+ 'conv5_2_weight': (512L, 512L, 3L, 3L),
+ 'conv5_3_bias': (512L,),
+ 'conv5_3_weight': (512L, 512L, 3L, 3L),
+ 'data': (1L, 3L, 302L, 1000L),
+ 'fc6_bias': (1024L,),
+ 'fc6_weight': (1024L, 25088L),
+ 'fc7_bias': (1024L,),
+ 'fc7_weight': (1024L, 1024L),
+ 'gt_boxes': (1L, 3L, 5L),
+ 'im_info': (1L, 3L),
+ 'label': (1L, 10044L),
+ 'rpn_bbox_pred_bias': (36L,),
+ 'rpn_bbox_pred_weight': (36L, 512L, 1L, 1L),
+ 'rpn_cls_score_bias': (18L,),
+ 'rpn_cls_score_weight': (18L, 512L, 1L, 1L),
+ 'rpn_conv_3x3_bias': (512L,),
+ 'rpn_conv_3x3_weight': (512L, 512L, 3L, 3L)}
+aux shape
+{}
+[08:56:16] src/operator/./cudnn_convolution-inl.h:55: Running performance tests to find the best convolution algorithm, this can take a while...
+INFO:root:Epoch[1] Batch [20]	Speed: 2.29 samples/sec	Train-RPNAcc=0.421131,	RPNLogLoss=0.706408,	RPNL1Loss=0.515277,	RCNNAcc=0.084449,	RCNNLogLoss=3.000782,	RCNNL1Loss=0.330699,	
+INFO:root:Epoch[1] Batch [40]	Speed: 2.10 samples/sec	Train-RPNAcc=0.461604,	RPNLogLoss=0.700490,	RPNL1Loss=0.543918,	RCNNAcc=0.186738,	RCNNLogLoss=2.947460,	RCNNL1Loss=0.357679,	
+INFO:root:Epoch[1] Batch [60]	Speed: 2.48 samples/sec	Train-RPNAcc=0.497695,	RPNLogLoss=0.697222,	RPNL1Loss=0.510145,	RCNNAcc=0.321209,	RCNNLogLoss=2.885031,	RCNNL1Loss=0.341472,	
+INFO:root:Epoch[1] Batch [80]	Speed: 2.43 samples/sec	Train-RPNAcc=0.525367,	RPNLogLoss=0.694149,	RPNL1Loss=0.505115,	RCNNAcc=0.427373,	RCNNLogLoss=2.826519,	RCNNL1Loss=0.358289,	
+INFO:root:Epoch[1] Batch [100]	Speed: 2.47 samples/sec	Train-RPNAcc=0.554146,	RPNLogLoss=0.689585,	RPNL1Loss=0.511747,	RCNNAcc=0.511448,	RCNNLogLoss=2.752067,	RCNNL1Loss=0.355651,	
+INFO:root:Epoch[1] Batch [120]	Speed: 2.10 samples/sec	Train-RPNAcc=0.587842,	RPNLogLoss=0.684018,	RPNL1Loss=0.486696,	RCNNAcc=0.571604,	RCNNLogLoss=2.669766,	RCNNL1Loss=0.346446,	
+INFO:root:Epoch[1] Batch [140]	Speed: 2.47 samples/sec	Train-RPNAcc=0.612589,	RPNLogLoss=0.678712,	RPNL1Loss=0.475513,	RCNNAcc=0.612921,	RCNNLogLoss=2.578432,	RCNNL1Loss=0.349929,	
+INFO:root:Epoch[1] Batch [160]	Speed: 2.37 samples/sec	Train-RPNAcc=0.627742,	RPNLogLoss=0.672882,	RPNL1Loss=0.478982,	RCNNAcc=0.642178,	RCNNLogLoss=2.469300,	RCNNL1Loss=0.353064,	
+INFO:root:Epoch[1] Batch [180]	Speed: 2.24 samples/sec	Train-RPNAcc=0.640301,	RPNLogLoss=0.663300,	RPNL1Loss=0.483681,	RCNNAcc=0.665185,	RCNNLogLoss=2.328230,	RCNNL1Loss=0.354017,	
+INFO:root:Epoch[1] Batch [200]	Speed: 1.91 samples/sec	Train-RPNAcc=0.652732,	RPNLogLoss=0.650679,	RPNL1Loss=0.472685,	RCNNAcc=0.686101,	RCNNLogLoss=2.177297,	RCNNL1Loss=0.345670,	
+INFO:root:Epoch[1] Batch [220]	Speed: 2.07 samples/sec	Train-RPNAcc=0.668092,	RPNLogLoss=0.632362,	RPNL1Loss=0.453068,	RCNNAcc=0.705211,	RCNNLogLoss=2.032665,	RCNNL1Loss=0.335954,	
+INFO:root:Epoch[1] Batch [240]	Speed: 1.87 samples/sec	Train-RPNAcc=0.676268,	RPNLogLoss=0.615736,	RPNL1Loss=0.441088,	RCNNAcc=0.714601,	RCNNLogLoss=1.939973,	RCNNL1Loss=0.346047,	
+INFO:root:Epoch[1] Batch [260]	Speed: 1.63 samples/sec	Train-RPNAcc=0.688832,	RPNLogLoss=0.598860,	RPNL1Loss=0.421230,	RCNNAcc=0.725156,	RCNNLogLoss=1.849326,	RCNNL1Loss=0.346090,	
+INFO:root:Epoch[1] Batch [280]	Speed: 1.88 samples/sec	Train-RPNAcc=0.698246,	RPNLogLoss=0.583833,	RPNL1Loss=0.407530,	RCNNAcc=0.733068,	RCNNLogLoss=1.772152,	RCNNL1Loss=0.349152,	
+INFO:root:Epoch[1] Batch [300]	Speed: 1.87 samples/sec	Train-RPNAcc=0.704007,	RPNLogLoss=0.570521,	RPNL1Loss=0.396372,	RCNNAcc=0.740137,	RCNNLogLoss=1.699218,	RCNNL1Loss=0.352761,	
+INFO:root:Epoch[1] Batch [320]	Speed: 1.86 samples/sec	Train-RPNAcc=0.711996,	RPNLogLoss=0.556205,	RPNL1Loss=0.382743,	RCNNAcc=0.746447,	RCNNLogLoss=1.633587,	RCNNL1Loss=0.355425,	
+INFO:root:Epoch[1] Batch [340]	Speed: 1.79 samples/sec	Train-RPNAcc=0.718635,	RPNLogLoss=0.543426,	RPNL1Loss=0.372411,	RCNNAcc=0.749656,	RCNNLogLoss=1.578394,	RCNNL1Loss=0.362513,	
+INFO:root:Epoch[1] Batch [360]	Speed: 1.89 samples/sec	Train-RPNAcc=0.725589,	RPNLogLoss=0.530821,	RPNL1Loss=0.361442,	RCNNAcc=0.755324,	RCNNLogLoss=1.519612,	RCNNL1Loss=0.361754,	
+INFO:root:Epoch[1] Batch [380]	Speed: 1.82 samples/sec	Train-RPNAcc=0.730828,	RPNLogLoss=0.519980,	RPNL1Loss=0.353499,	RCNNAcc=0.760294,	RCNNLogLoss=1.465657,	RCNNL1Loss=0.362095,	
+INFO:root:Epoch[1] Batch [400]	Speed: 1.66 samples/sec	Train-RPNAcc=0.735515,	RPNLogLoss=0.510217,	RPNL1Loss=0.346557,	RCNNAcc=0.764612,	RCNNLogLoss=1.417376,	RCNNL1Loss=0.361931,	
+INFO:root:Epoch[1] Batch [420]	Speed: 1.72 samples/sec	Train-RPNAcc=0.740907,	RPNLogLoss=0.501202,	RPNL1Loss=0.341024,	RCNNAcc=0.770190,	RCNNLogLoss=1.369539,	RCNNL1Loss=0.358619,	
+INFO:root:Epoch[1] Batch [440]	Speed: 1.70 samples/sec	Train-RPNAcc=0.746085,	RPNLogLoss=0.493036,	RPNL1Loss=0.332940,	RCNNAcc=0.772516,	RCNNLogLoss=1.330998,	RCNNL1Loss=0.361965,	
+INFO:root:Epoch[1] Batch [460]	Speed: 1.69 samples/sec	Train-RPNAcc=0.750500,	RPNLogLoss=0.485699,	RPNL1Loss=0.326692,	RCNNAcc=0.776064,	RCNNLogLoss=1.291163,	RCNNL1Loss=0.360987,	
+INFO:root:Epoch[1] Batch [480]	Speed: 1.67 samples/sec	Train-RPNAcc=0.754921,	RPNLogLoss=0.478206,	RPNL1Loss=0.320706,	RCNNAcc=0.778895,	RCNNLogLoss=1.255895,	RCNNL1Loss=0.363306,	
+INFO:root:Epoch[1] Batch [500]	Speed: 1.45 samples/sec	Train-RPNAcc=0.758163,	RPNLogLoss=0.471903,	RPNL1Loss=0.315312,	RCNNAcc=0.781655,	RCNNLogLoss=1.223132,	RCNNL1Loss=0.364143,	
+INFO:root:Epoch[1] Batch [520]	Speed: 1.66 samples/sec	Train-RPNAcc=0.761591,	RPNLogLoss=0.466072,	RPNL1Loss=0.310859,	RCNNAcc=0.783544,	RCNNLogLoss=1.193766,	RCNNL1Loss=0.366914,	
+INFO:root:Epoch[1] Batch [540]	Speed: 1.66 samples/sec	Train-RPNAcc=0.764816,	RPNLogLoss=0.459487,	RPNL1Loss=0.305733,	RCNNAcc=0.784976,	RCNNLogLoss=1.166504,	RCNNL1Loss=0.370728,	
+INFO:root:Epoch[1] Batch [560]	Speed: 1.66 samples/sec	Train-RPNAcc=0.767589,	RPNLogLoss=0.454272,	RPNL1Loss=0.300650,	RCNNAcc=0.787252,	RCNNLogLoss=1.139233,	RCNNL1Loss=0.370778,	
+INFO:root:Epoch[1] Batch [580]	Speed: 1.64 samples/sec	Train-RPNAcc=0.770224,	RPNLogLoss=0.449083,	RPNL1Loss=0.296285,	RCNNAcc=0.788242,	RCNNLogLoss=1.115663,	RCNNL1Loss=0.374820,	
+INFO:root:Epoch[1] Batch [600]	Speed: 1.61 samples/sec	Train-RPNAcc=0.772203,	RPNLogLoss=0.445369,	RPNL1Loss=0.291952,	RCNNAcc=0.789011,	RCNNLogLoss=1.093619,	RCNNL1Loss=0.379101,	
+INFO:root:Epoch[1] Batch [620]	Speed: 1.68 samples/sec	Train-RPNAcc=0.774526,	RPNLogLoss=0.440945,	RPNL1Loss=0.288408,	RCNNAcc=0.790698,	RCNNLogLoss=1.071114,	RCNNL1Loss=0.380207,	
+INFO:root:Epoch[1] Batch [640]	Speed: 1.55 samples/sec	Train-RPNAcc=0.776850,	RPNLogLoss=0.436501,	RPNL1Loss=0.284330,	RCNNAcc=0.791805,	RCNNLogLoss=1.050916,	RCNNL1Loss=0.383864,	
+INFO:root:Epoch[1] Batch [660]	Speed: 1.64 samples/sec	Train-RPNAcc=0.779306,	RPNLogLoss=0.432264,	RPNL1Loss=0.281344,	RCNNAcc=0.794074,	RCNNLogLoss=1.029747,	RCNNL1Loss=0.384244,	
+INFO:root:Epoch[1] Batch [680]	Speed: 1.61 samples/sec	Train-RPNAcc=0.781978,	RPNLogLoss=0.427445,	RPNL1Loss=0.277496,	RCNNAcc=0.795934,	RCNNLogLoss=1.010196,	RCNNL1Loss=0.384577,	
+INFO:root:Epoch[1] Batch [700]	Speed: 1.69 samples/sec	Train-RPNAcc=0.784593,	RPNLogLoss=0.422978,	RPNL1Loss=0.273443,	RCNNAcc=0.798335,	RCNNLogLoss=0.990134,	RCNNL1Loss=0.382667,	
+INFO:root:Epoch[1] Batch [720]	Speed: 1.66 samples/sec	Train-RPNAcc=0.787464,	RPNLogLoss=0.418148,	RPNL1Loss=0.269190,	RCNNAcc=0.800559,	RCNNLogLoss=0.971299,	RCNNL1Loss=0.382528,	
+INFO:root:Epoch[1] Batch [740]	Speed: 1.61 samples/sec	Train-RPNAcc=0.789068,	RPNLogLoss=0.415216,	RPNL1Loss=0.266642,	RCNNAcc=0.801746,	RCNNLogLoss=0.955600,	RCNNL1Loss=0.384430,	
+INFO:root:Epoch[1] Batch [760]	Speed: 1.32 samples/sec	Train-RPNAcc=0.791198,	RPNLogLoss=0.411586,	RPNL1Loss=0.263529,	RCNNAcc=0.803456,	RCNNLogLoss=0.939635,	RCNNL1Loss=0.385307,	
+INFO:root:Epoch[1] Batch [780]	Speed: 1.46 samples/sec	Train-RPNAcc=0.792429,	RPNLogLoss=0.409879,	RPNL1Loss=0.262584,	RCNNAcc=0.804407,	RCNNLogLoss=0.925259,	RCNNL1Loss=0.386659,	
+INFO:root:Epoch[1] Batch [800]	Speed: 1.53 samples/sec	Train-RPNAcc=0.793954,	RPNLogLoss=0.406880,	RPNL1Loss=0.260399,	RCNNAcc=0.805897,	RCNNLogLoss=0.910872,	RCNNL1Loss=0.388107,	
+INFO:root:Epoch[1] Batch [820]	Speed: 1.52 samples/sec	Train-RPNAcc=0.795752,	RPNLogLoss=0.404188,	RPNL1Loss=0.257976,	RCNNAcc=0.806933,	RCNNLogLoss=0.897438,	RCNNL1Loss=0.390036,	
+INFO:root:Epoch[1] Batch [840]	Speed: 1.55 samples/sec	Train-RPNAcc=0.797432,	RPNLogLoss=0.401528,	RPNL1Loss=0.255955,	RCNNAcc=0.808431,	RCNNLogLoss=0.883881,	RCNNL1Loss=0.391750,	
+INFO:root:Epoch[1] Batch [860]	Speed: 1.51 samples/sec	Train-RPNAcc=0.799003,	RPNLogLoss=0.398516,	RPNL1Loss=0.253505,	RCNNAcc=0.809814,	RCNNLogLoss=0.871135,	RCNNL1Loss=0.392888,	
+INFO:root:Epoch[1] Batch [880]	Speed: 1.66 samples/sec	Train-RPNAcc=0.800564,	RPNLogLoss=0.395379,	RPNL1Loss=0.250484,	RCNNAcc=0.811454,	RCNNLogLoss=0.858019,	RCNNL1Loss=0.392648,	
+INFO:root:Epoch[1] Batch [900]	Speed: 1.56 samples/sec	Train-RPNAcc=0.801809,	RPNLogLoss=0.392851,	RPNL1Loss=0.247897,	RCNNAcc=0.812968,	RCNNLogLoss=0.845497,	RCNNL1Loss=0.392982,	
+INFO:root:Epoch[1] Batch [920]	Speed: 1.57 samples/sec	Train-RPNAcc=0.803835,	RPNLogLoss=0.390055,	RPNL1Loss=0.245891,	RCNNAcc=0.814476,	RCNNLogLoss=0.833416,	RCNNL1Loss=0.392652,	
+INFO:root:Epoch[1] Batch [940]	Speed: 1.54 samples/sec	Train-RPNAcc=0.805119,	RPNLogLoss=0.387647,	RPNL1Loss=0.244152,	RCNNAcc=0.815447,	RCNNLogLoss=0.823005,	RCNNL1Loss=0.394498,	
+INFO:root:Epoch[1] Batch [960]	Speed: 1.41 samples/sec	Train-RPNAcc=0.806606,	RPNLogLoss=0.385241,	RPNL1Loss=0.242281,	RCNNAcc=0.816825,	RCNNLogLoss=0.812095,	RCNNL1Loss=0.395738,	
+INFO:root:Epoch[1] Batch [980]	Speed: 1.56 samples/sec	Train-RPNAcc=0.808235,	RPNLogLoss=0.382858,	RPNL1Loss=0.240158,	RCNNAcc=0.818035,	RCNNLogLoss=0.801770,	RCNNL1Loss=0.397327,	
+INFO:root:Epoch[1] Batch [1000]	Speed: 1.60 samples/sec	Train-RPNAcc=0.809956,	RPNLogLoss=0.379755,	RPNL1Loss=0.237939,	RCNNAcc=0.819829,	RCNNLogLoss=0.790610,	RCNNL1Loss=0.396625,	
+INFO:root:Epoch[1] Batch [1020]	Speed: 1.49 samples/sec	Train-RPNAcc=0.810905,	RPNLogLoss=0.378096,	RPNL1Loss=0.236704,	RCNNAcc=0.820580,	RCNNLogLoss=0.781650,	RCNNL1Loss=0.399240,	
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+600
+INFO:root:Epoch[1] Batch [1040]	Speed: 1.61 samples/sec	Train-RPNAcc=0.812492,	RPNLogLoss=0.375609,	RPNL1Loss=0.235092,	RCNNAcc=0.821979,	RCNNLogLoss=0.771872,	RCNNL1Loss=0.400461,	
+INFO:root:Epoch[1] Batch [1060]	Speed: 1.64 samples/sec	Train-RPNAcc=0.813951,	RPNLogLoss=0.373092,	RPNL1Loss=0.233128,	RCNNAcc=0.823074,	RCNNLogLoss=0.762931,	RCNNL1Loss=0.400819,	
+INFO:root:Epoch[1] Batch [1080]	Speed: 1.56 samples/sec	Train-RPNAcc=0.815434,	RPNLogLoss=0.370716,	RPNL1Loss=0.231536,	RCNNAcc=0.824338,	RCNNLogLoss=0.753908,	RCNNL1Loss=0.401638,	
+INFO:root:Epoch[1] Batch [1100]	Speed: 1.59 samples/sec	Train-RPNAcc=0.816456,	RPNLogLoss=0.368650,	RPNL1Loss=0.229986,	RCNNAcc=0.825507,	RCNNLogLoss=0.745557,	RCNNL1Loss=0.401096,	
+INFO:root:Epoch[1] Batch [1120]	Speed: 1.39 samples/sec	Train-RPNAcc=0.817716,	RPNLogLoss=0.366289,	RPNL1Loss=0.228247,	RCNNAcc=0.826989,	RCNNLogLoss=0.736753,	RCNNL1Loss=0.400194,	
+INFO:root:Epoch[1] Batch [1140]	Speed: 1.59 samples/sec	Train-RPNAcc=0.818762,	RPNLogLoss=0.364528,	RPNL1Loss=0.227023,	RCNNAcc=0.827824,	RCNNLogLoss=0.729149,	RCNNL1Loss=0.401308,	
+INFO:root:Epoch[1] Batch [1160]	Speed: 1.59 samples/sec	Train-RPNAcc=0.820023,	RPNLogLoss=0.362311,	RPNL1Loss=0.225226,	RCNNAcc=0.828825,	RCNNLogLoss=0.721226,	RCNNL1Loss=0.402334,	
+INFO:root:Epoch[1] Batch [1180]	Speed: 1.59 samples/sec	Train-RPNAcc=0.821229,	RPNLogLoss=0.360448,	RPNL1Loss=0.223928,	RCNNAcc=0.829878,	RCNNLogLoss=0.713519,	RCNNL1Loss=0.402227,	
+INFO:root:Epoch[1] Batch [1200]	Speed: 1.53 samples/sec	Train-RPNAcc=0.822212,	RPNLogLoss=0.358615,	RPNL1Loss=0.222574,	RCNNAcc=0.831202,	RCNNLogLoss=0.705657,	RCNNL1Loss=0.401731,	
+INFO:root:Epoch[1] Batch [1220]	Speed: 1.44 samples/sec	Train-RPNAcc=0.823269,	RPNLogLoss=0.356870,	RPNL1Loss=0.221705,	RCNNAcc=0.832335,	RCNNLogLoss=0.698350,	RCNNL1Loss=0.402106,	
+INFO:root:Epoch[1] Batch [1240]	Speed: 1.67 samples/sec	Train-RPNAcc=0.824628,	RPNLogLoss=0.354708,	RPNL1Loss=0.220471,	RCNNAcc=0.833262,	RCNNLogLoss=0.691611,	RCNNL1Loss=0.402637,	
+INFO:root:Epoch[1] Batch [1260]	Speed: 1.41 samples/sec	Train-RPNAcc=0.825576,	RPNLogLoss=0.353137,	RPNL1Loss=0.219404,	RCNNAcc=0.834178,	RCNNLogLoss=0.685022,	RCNNL1Loss=0.403373,	
+INFO:root:Epoch[1] Batch [1280]	Speed: 1.62 samples/sec	Train-RPNAcc=0.826472,	RPNLogLoss=0.351713,	RPNL1Loss=0.218373,	RCNNAcc=0.834876,	RCNNLogLoss=0.678890,	RCNNL1Loss=0.404448,	
+{'EPS': 1e-14,
+ 'IMAGE_STRIDE': 0,
+ 'PIXEL_MEANS': array([[[ 123.68 ,  116.779,  103.939]]]),
+ 'SCALES': [(600, 1000)],
+ 'TEST': {'BATCH_IMAGES': 1,
+          'HAS_RPN': False,
+          'NMS': 0.3,
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000},
+ 'TRAIN': {'BATCH_IMAGES': 1,
+           'BATCH_ROIS': 128,
+           'BBOX_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZATION_PRECOMPUTED': True,
+           'BBOX_REGRESSION_THRESH': 0.5,
+           'BBOX_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_WEIGHTS': array([ 1.,  1.,  1.,  1.]),
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'END2END': True,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'RPN_BATCH_SIZE': 256,
+           'RPN_BBOX_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 16,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 6000,
+           'RPN_PRE_NMS_TOP_N': 12000}}
+num_images 3424
+kitti_train_ry_alpha_car_only gt roidb loaded from data/cache/kitti_train_ry_alpha_car_only_gt_roidb.pkl
+append flipped images to roidb
+600
+providing maximum shape [('data', (1, 3, 1000, 1000)), ('gt_boxes', (1, 100, 5))] [('label', (1, 34596)), ('bbox_target', (1, 36, 62, 62)), ('bbox_weight', (1, 36, 62, 62))]
+output shape
+{'bbox_loss_reshape_output': (1L, 128L, 84L),
+ 'blockgrad0_output': (1L, 128L),
+ 'cls_prob_reshape_output': (1L, 128L, 21L),
+ 'rpn_bbox_loss_output': (1L, 36L, 18L, 62L),
+ 'rpn_cls_prob_output': (1L, 2L, 162L, 62L)}
+arg shape
+{'bbox_pred_bias': (84L,),
+ 'bbox_pred_weight': (84L, 4096L),
+ 'bbox_target': (1L, 36L, 18L, 62L),
+ 'bbox_weight': (1L, 36L, 18L, 62L),
+ 'cls_score_bias': (21L,),
+ 'cls_score_weight': (21L, 4096L),
+ 'conv1_1_bias': (64L,),
+ 'conv1_1_weight': (64L, 3L, 3L, 3L),
+ 'conv1_2_bias': (64L,),
+ 'conv1_2_weight': (64L, 64L, 3L, 3L),
+ 'conv2_1_bias': (128L,),
+ 'conv2_1_weight': (128L, 64L, 3L, 3L),
+ 'conv2_2_bias': (128L,),
+ 'conv2_2_weight': (128L, 128L, 3L, 3L),
+ 'conv3_1_bias': (256L,),
+ 'conv3_1_weight': (256L, 128L, 3L, 3L),
+ 'conv3_2_bias': (256L,),
+ 'conv3_2_weight': (256L, 256L, 3L, 3L),
+ 'conv3_3_bias': (256L,),
+ 'conv3_3_weight': (256L, 256L, 3L, 3L),
+ 'conv4_1_bias': (512L,),
+ 'conv4_1_weight': (512L, 256L, 3L, 3L),
+ 'conv4_2_bias': (512L,),
+ 'conv4_2_weight': (512L, 512L, 3L, 3L),
+ 'conv4_3_bias': (512L,),
+ 'conv4_3_weight': (512L, 512L, 3L, 3L),
+ 'conv5_1_bias': (512L,),
+ 'conv5_1_weight': (512L, 512L, 3L, 3L),
+ 'conv5_2_bias': (512L,),
+ 'conv5_2_weight': (512L, 512L, 3L, 3L),
+ 'conv5_3_bias': (512L,),
+ 'conv5_3_weight': (512L, 512L, 3L, 3L),
+ 'data': (1L, 3L, 302L, 1000L),
+ 'fc6_bias': (4096L,),
+ 'fc6_weight': (4096L, 25088L),
+ 'fc7_0_bias': (4096L,),
+ 'fc7_0_weight': (4096L, 4096L),
+ 'fc7_bias': (4096L,),
+ 'fc7_weight': (4096L, 4096L),
+ 'gt_boxes': (1L, 1L, 5L),
+ 'im_info': (1L, 3L),
+ 'label': (1L, 10044L),
+ 'rpn_bbox_pred_bias': (36L,),
+ 'rpn_bbox_pred_weight': (36L, 512L, 1L, 1L),
+ 'rpn_cls_score_bias': (18L,),
+ 'rpn_cls_score_weight': (18L, 512L, 1L, 1L),
+ 'rpn_conv_3x3_bias': (512L,),
+ 'rpn_conv_3x3_weight': (512L, 512L, 3L, 3L)}
+aux shape
+{}
+Traceback (most recent call last):
+  File "train_end2end.py", line 186, in <module>
+    lr=args.lr, lr_step=args.lr_step)
+  File "train_end2end.py", line 95, in train_net
+    assert k in arg_params, k + ' not initialized'
+AssertionError: fc7_0_weight not initialized
+{'EPS': 1e-14,
+ 'IMAGE_STRIDE': 0,
+ 'PIXEL_MEANS': array([[[ 123.68 ,  116.779,  103.939]]]),
+ 'SCALES': [(600, 1000)],
+ 'TEST': {'BATCH_IMAGES': 1,
+          'HAS_RPN': False,
+          'NMS': 0.3,
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000},
+ 'TRAIN': {'BATCH_IMAGES': 1,
+           'BATCH_ROIS': 128,
+           'BBOX_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZATION_PRECOMPUTED': True,
+           'BBOX_REGRESSION_THRESH': 0.5,
+           'BBOX_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_WEIGHTS': array([ 1.,  1.,  1.,  1.]),
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'END2END': True,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'RPN_BATCH_SIZE': 256,
+           'RPN_BBOX_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 16,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 6000,
+           'RPN_PRE_NMS_TOP_N': 12000}}
+num_images 3424
+kitti_train_ry_alpha_car_only gt roidb loaded from data/cache/kitti_train_ry_alpha_car_only_gt_roidb.pkl
+append flipped images to roidb
+600
+providing maximum shape [('data', (1, 3, 1000, 1000)), ('gt_boxes', (1, 100, 5))] [('label', (1, 34596)), ('bbox_target', (1, 36, 62, 62)), ('bbox_weight', (1, 36, 62, 62))]
+output shape
+{'bbox_loss_reshape_output': (1L, 128L, 84L),
+ 'blockgrad0_output': (1L, 128L),
+ 'cls_prob_reshape_output': (1L, 128L, 21L),
+ 'rpn_bbox_loss_output': (1L, 36L, 18L, 62L),
+ 'rpn_cls_prob_output': (1L, 2L, 162L, 62L)}
+arg shape
+{'bbox_pred_bias': (84L,),
+ 'bbox_pred_weight': (84L, 4096L),
+ 'bbox_target': (1L, 36L, 18L, 62L),
+ 'bbox_weight': (1L, 36L, 18L, 62L),
+ 'cls_score_bias': (21L,),
+ 'cls_score_weight': (21L, 4096L),
+ 'conv1_1_bias': (64L,),
+ 'conv1_1_weight': (64L, 3L, 3L, 3L),
+ 'conv1_2_bias': (64L,),
+ 'conv1_2_weight': (64L, 64L, 3L, 3L),
+ 'conv2_1_bias': (128L,),
+ 'conv2_1_weight': (128L, 64L, 3L, 3L),
+ 'conv2_2_bias': (128L,),
+ 'conv2_2_weight': (128L, 128L, 3L, 3L),
+ 'conv3_1_bias': (256L,),
+ 'conv3_1_weight': (256L, 128L, 3L, 3L),
+ 'conv3_2_bias': (256L,),
+ 'conv3_2_weight': (256L, 256L, 3L, 3L),
+ 'conv3_3_bias': (256L,),
+ 'conv3_3_weight': (256L, 256L, 3L, 3L),
+ 'conv4_1_bias': (512L,),
+ 'conv4_1_weight': (512L, 256L, 3L, 3L),
+ 'conv4_2_bias': (512L,),
+ 'conv4_2_weight': (512L, 512L, 3L, 3L),
+ 'conv4_3_bias': (512L,),
+ 'conv4_3_weight': (512L, 512L, 3L, 3L),
+ 'conv5_1_bias': (512L,),
+ 'conv5_1_weight': (512L, 512L, 3L, 3L),
+ 'conv5_2_bias': (512L,),
+ 'conv5_2_weight': (512L, 512L, 3L, 3L),
+ 'conv5_3_bias': (512L,),
+ 'conv5_3_weight': (512L, 512L, 3L, 3L),
+ 'data': (1L, 3L, 302L, 1000L),
+ 'fc6_bias': (4096L,),
+ 'fc6_weight': (4096L, 25088L),
+ 'fc7_0_bias': (4096L,),
+ 'fc7_0_weight': (4096L, 4096L),
+ 'fc7_bias': (4096L,),
+ 'fc7_weight': (4096L, 4096L),
+ 'gt_boxes': (1L, 4L, 5L),
+ 'im_info': (1L, 3L),
+ 'label': (1L, 10044L),
+ 'rpn_bbox_pred_bias': (36L,),
+ 'rpn_bbox_pred_weight': (36L, 512L, 1L, 1L),
+ 'rpn_cls_score_bias': (18L,),
+ 'rpn_cls_score_weight': (18L, 512L, 1L, 1L),
+ 'rpn_conv_3x3_bias': (512L,),
+ 'rpn_conv_3x3_weight': (512L, 512L, 3L, 3L)}
+aux shape
+{}
+[09:12:27] src/operator/./cudnn_convolution-inl.h:55: Running performance tests to find the best convolution algorithm, this can take a while...
+INFO:root:Epoch[1] Batch [20]	Speed: 2.44 samples/sec	Train-RPNAcc=0.458147,	RPNLogLoss=0.701168,	RPNL1Loss=0.467548,	RCNNAcc=0.298735,	RCNNLogLoss=2.649971,	RCNNL1Loss=0.336382,	
+INFO:root:Epoch[1] Batch [40]	Speed: 2.55 samples/sec	Train-RPNAcc=0.492569,	RPNLogLoss=0.695864,	RPNL1Loss=0.398860,	RCNNAcc=0.518483,	RCNNLogLoss=2.358790,	RCNNL1Loss=0.363981,	
+INFO:root:Epoch[1] Batch [60]	Speed: 2.42 samples/sec	Train-RPNAcc=0.509285,	RPNLogLoss=0.692910,	RPNL1Loss=0.424407,	RCNNAcc=0.635758,	RCNNLogLoss=2.055250,	RCNNL1Loss=0.333210,	
+INFO:root:Epoch[1] Batch [80]	Speed: 2.48 samples/sec	Train-RPNAcc=0.526186,	RPNLogLoss=0.689099,	RPNL1Loss=0.445988,	RCNNAcc=0.690008,	RCNNLogLoss=1.804699,	RCNNL1Loss=0.337945,	
+Traceback (most recent call last):
+  File "train_end2end.py", line 186, in <module>
+    lr=args.lr, lr_step=args.lr_step)
+  File "train_end2end.py", line 32, in train_net
+    sym = eval('get_' + args.network + '_train')()
+  File "/home/hustxly/Car/Car_Orientation/mx-rcnn/rcnn/symbol/symbol_vgg.py", line 379, in get_vgg_train
+    fc7 = mx.symbol.FullyConnected(data=drop7_0, num_hidden=4096, name="fc7")
+NameError: global name 'drop7_0' is not defined
+{'EPS': 1e-14,
+ 'IMAGE_STRIDE': 0,
+ 'PIXEL_MEANS': array([[[ 123.68 ,  116.779,  103.939]]]),
+ 'SCALES': [(600, 1000)],
+ 'TEST': {'BATCH_IMAGES': 1,
+          'HAS_RPN': False,
+          'NMS': 0.3,
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000},
+ 'TRAIN': {'BATCH_IMAGES': 1,
+           'BATCH_ROIS': 128,
+           'BBOX_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZATION_PRECOMPUTED': True,
+           'BBOX_REGRESSION_THRESH': 0.5,
+           'BBOX_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_WEIGHTS': array([ 1.,  1.,  1.,  1.]),
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'END2END': True,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'RPN_BATCH_SIZE': 256,
+           'RPN_BBOX_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 16,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 6000,
+           'RPN_PRE_NMS_TOP_N': 12000}}
+num_images 3424
+kitti_train_ry_alpha_car_only gt roidb loaded from data/cache/kitti_train_ry_alpha_car_only_gt_roidb.pkl
+append flipped images to roidb
+600
+providing maximum shape [('data', (1, 3, 1000, 1000)), ('gt_boxes', (1, 100, 5))] [('label', (1, 34596)), ('bbox_target', (1, 36, 62, 62)), ('bbox_weight', (1, 36, 62, 62))]
+output shape
+{'bbox_loss_reshape_output': (1L, 128L, 84L),
+ 'blockgrad0_output': (1L, 128L),
+ 'cls_prob_reshape_output': (1L, 128L, 21L),
+ 'rpn_bbox_loss_output': (1L, 36L, 18L, 62L),
+ 'rpn_cls_prob_output': (1L, 2L, 162L, 62L)}
+arg shape
+{'bbox_pred_bias': (84L,),
+ 'bbox_pred_weight': (84L, 4096L),
+ 'bbox_target': (1L, 36L, 18L, 62L),
+ 'bbox_weight': (1L, 36L, 18L, 62L),
+ 'cls_score_bias': (21L,),
+ 'cls_score_weight': (21L, 4096L),
+ 'conv1_1_bias': (64L,),
+ 'conv1_1_weight': (64L, 3L, 3L, 3L),
+ 'conv1_2_bias': (64L,),
+ 'conv1_2_weight': (64L, 64L, 3L, 3L),
+ 'conv2_1_bias': (128L,),
+ 'conv2_1_weight': (128L, 64L, 3L, 3L),
+ 'conv2_2_bias': (128L,),
+ 'conv2_2_weight': (128L, 128L, 3L, 3L),
+ 'conv3_1_bias': (256L,),
+ 'conv3_1_weight': (256L, 128L, 3L, 3L),
+ 'conv3_2_bias': (256L,),
+ 'conv3_2_weight': (256L, 256L, 3L, 3L),
+ 'conv3_3_bias': (256L,),
+ 'conv3_3_weight': (256L, 256L, 3L, 3L),
+ 'conv4_1_bias': (512L,),
+ 'conv4_1_weight': (512L, 256L, 3L, 3L),
+ 'conv4_2_bias': (512L,),
+ 'conv4_2_weight': (512L, 512L, 3L, 3L),
+ 'conv4_3_bias': (512L,),
+ 'conv4_3_weight': (512L, 512L, 3L, 3L),
+ 'conv5_1_bias': (512L,),
+ 'conv5_1_weight': (512L, 512L, 3L, 3L),
+ 'conv5_2_bias': (512L,),
+ 'conv5_2_weight': (512L, 512L, 3L, 3L),
+ 'conv5_3_bias': (512L,),
+ 'conv5_3_weight': (512L, 512L, 3L, 3L),
+ 'data': (1L, 3L, 302L, 1000L),
+ 'fc6_bias': (4096L,),
+ 'fc6_weight': (4096L, 25088L),
+ 'fc7_bias': (4096L,),
+ 'fc7_weight': (4096L, 4096L),
+ 'gt_boxes': (1L, 3L, 5L),
+ 'im_info': (1L, 3L),
+ 'label': (1L, 10044L),
+ 'rpn_bbox_pred_bias': (36L,),
+ 'rpn_bbox_pred_weight': (36L, 512L, 1L, 1L),
+ 'rpn_cls_score_bias': (18L,),
+ 'rpn_cls_score_weight': (18L, 512L, 1L, 1L),
+ 'rpn_conv_3x3_bias': (512L,),
+ 'rpn_conv_3x3_weight': (512L, 512L, 3L, 3L)}
+aux shape
+{}
+[09:14:04] src/operator/./cudnn_convolution-inl.h:55: Running performance tests to find the best convolution algorithm, this can take a while...
+INFO:root:Epoch[1] Batch [20]	Speed: 2.33 samples/sec	Train-RPNAcc=0.532738,	RPNLogLoss=0.695931,	RPNL1Loss=0.481951,	RCNNAcc=0.209449,	RCNNLogLoss=2.839752,	RCNNL1Loss=0.401101,	
+INFO:root:Epoch[1] Batch [40]	Speed: 2.60 samples/sec	Train-RPNAcc=0.555450,	RPNLogLoss=0.692774,	RPNL1Loss=0.460450,	RCNNAcc=0.485709,	RCNNLogLoss=2.246729,	RCNNL1Loss=0.415552,	
+INFO:root:Epoch[1] Batch [60]	Speed: 2.37 samples/sec	Train-RPNAcc=0.580558,	RPNLogLoss=0.689460,	RPNL1Loss=0.458158,	RCNNAcc=0.610272,	RCNNLogLoss=1.819444,	RCNNL1Loss=0.389199,	
+INFO:root:Epoch[1] Batch [80]	Speed: 2.47 samples/sec	Train-RPNAcc=0.595149,	RPNLogLoss=0.686177,	RPNL1Loss=0.442905,	RCNNAcc=0.678530,	RCNNLogLoss=1.530575,	RCNNL1Loss=0.358973,	
+{'EPS': 1e-14,
+ 'IMAGE_STRIDE': 0,
+ 'PIXEL_MEANS': array([[[ 123.68 ,  116.779,  103.939]]]),
+ 'SCALES': [(600, 1000)],
+ 'TEST': {'BATCH_IMAGES': 1,
+          'HAS_RPN': False,
+          'NMS': 0.3,
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000},
+ 'TRAIN': {'BATCH_IMAGES': 1,
+           'BATCH_ROIS': 128,
+           'BBOX_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZATION_PRECOMPUTED': True,
+           'BBOX_REGRESSION_THRESH': 0.5,
+           'BBOX_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_WEIGHTS': array([ 1.,  1.,  1.,  1.]),
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'END2END': True,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'RPN_BATCH_SIZE': 256,
+           'RPN_BBOX_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 16,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 6000,
+           'RPN_PRE_NMS_TOP_N': 12000}}
+num_images 3424
+kitti_train_ry_alpha_car_only gt roidb loaded from data/cache/kitti_train_ry_alpha_car_only_gt_roidb.pkl
+append flipped images to roidb
+600
+providing maximum shape [('data', (1, 3, 1000, 1000)), ('gt_boxes', (1, 100, 5))] [('label', (1, 34596)), ('bbox_target', (1, 36, 62, 62)), ('bbox_weight', (1, 36, 62, 62))]
+output shape
+{'bbox_loss_reshape_output': (1L, 128L, 84L),
+ 'blockgrad0_output': (1L, 128L),
+ 'cls_prob_reshape_output': (1L, 128L, 21L),
+ 'rpn_bbox_loss_output': (1L, 36L, 18L, 62L),
+ 'rpn_cls_prob_output': (1L, 2L, 162L, 62L)}
+arg shape
+{'bbox_pred_bias': (84L,),
+ 'bbox_pred_weight': (84L, 4096L),
+ 'bbox_target': (1L, 36L, 18L, 62L),
+ 'bbox_weight': (1L, 36L, 18L, 62L),
+ 'cls_score_bias': (21L,),
+ 'cls_score_weight': (21L, 4096L),
+ 'conv1_1_bias': (64L,),
+ 'conv1_1_weight': (64L, 3L, 3L, 3L),
+ 'conv1_2_bias': (64L,),
+ 'conv1_2_weight': (64L, 64L, 3L, 3L),
+ 'conv2_1_bias': (128L,),
+ 'conv2_1_weight': (128L, 64L, 3L, 3L),
+ 'conv2_2_bias': (128L,),
+ 'conv2_2_weight': (128L, 128L, 3L, 3L),
+ 'conv3_1_bias': (256L,),
+ 'conv3_1_weight': (256L, 128L, 3L, 3L),
+ 'conv3_2_bias': (256L,),
+ 'conv3_2_weight': (256L, 256L, 3L, 3L),
+ 'conv3_3_bias': (256L,),
+ 'conv3_3_weight': (256L, 256L, 3L, 3L),
+ 'conv4_1_bias': (512L,),
+ 'conv4_1_weight': (512L, 256L, 3L, 3L),
+ 'conv4_2_bias': (512L,),
+ 'conv4_2_weight': (512L, 512L, 3L, 3L),
+ 'conv4_3_bias': (512L,),
+ 'conv4_3_weight': (512L, 512L, 3L, 3L),
+ 'conv5_1_bias': (512L,),
+ 'conv5_1_weight': (512L, 512L, 3L, 3L),
+ 'conv5_2_bias': (512L,),
+ 'conv5_2_weight': (512L, 512L, 3L, 3L),
+ 'conv5_3_bias': (512L,),
+ 'conv5_3_weight': (512L, 512L, 3L, 3L),
+ 'data': (1L, 3L, 302L, 1000L),
+ 'fc6_bias': (4096L,),
+ 'fc6_weight': (4096L, 25088L),
+ 'fc7_bias': (4096L,),
+ 'fc7_weight': (4096L, 4096L),
+ 'gt_boxes': (1L, 5L, 5L),
+ 'im_info': (1L, 3L),
+ 'label': (1L, 10044L),
+ 'rpn_bbox_pred_bias': (36L,),
+ 'rpn_bbox_pred_weight': (36L, 512L, 1L, 1L),
+ 'rpn_cls_score_bias': (18L,),
+ 'rpn_cls_score_weight': (18L, 512L, 1L, 1L),
+ 'rpn_conv_3x3_bias': (512L,),
+ 'rpn_conv_3x3_weight': (512L, 512L, 3L, 3L)}
+aux shape
+{}
+[05:05:04] src/operator/./cudnn_convolution-inl.h:55: Running performance tests to find the best convolution algorithm, this can take a while...
+INFO:root:Epoch[1] Batch [20]	Speed: 2.07 samples/sec	Train-RPNAcc=0.554874,	RPNLogLoss=0.692884,	RPNL1Loss=0.439169,	RCNNAcc=0.204613,	RCNNLogLoss=2.822921,	RCNNL1Loss=0.306108,	
