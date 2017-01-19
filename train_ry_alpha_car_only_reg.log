@@ -2645,3 +2645,232 @@ aux shape
 {}
 [05:05:04] src/operator/./cudnn_convolution-inl.h:55: Running performance tests to find the best convolution algorithm, this can take a while...
 INFO:root:Epoch[1] Batch [20]	Speed: 2.07 samples/sec	Train-RPNAcc=0.554874,	RPNLogLoss=0.692884,	RPNL1Loss=0.439169,	RCNNAcc=0.204613,	RCNNLogLoss=2.822921,	RCNNL1Loss=0.306108,	
+{'EPS': 1e-14,
+ 'IMAGE_STRIDE': 0,
+ 'PIXEL_MEANS': array([[[ 123.68 ,  116.779,  103.939]]]),
+ 'SCALES': [(600, 1000)],
+ 'TEST': {'BATCH_IMAGES': 1,
+          'HAS_RPN': False,
+          'NMS': 0.3,
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000},
+ 'TRAIN': {'BATCH_IMAGES': 1,
+           'BATCH_ROIS': 128,
+           'BBOX_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZATION_PRECOMPUTED': True,
+           'BBOX_REGRESSION_THRESH': 0.5,
+           'BBOX_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_WEIGHTS': array([ 1.,  1.,  1.,  1.]),
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'END2END': True,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'RPN_BATCH_SIZE': 256,
+           'RPN_BBOX_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 16,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 6000,
+           'RPN_PRE_NMS_TOP_N': 12000}}
+Traceback (most recent call last):
+  File "train_end2end.py", line 186, in <module>
+    lr=args.lr, lr_step=args.lr_step)
+  File "train_end2end.py", line 43, in train_net
+    imdb = eval(args.dataset)(args.image_set, args.root_path, args.dataset_path)
+  File "/home/hustxly/Car/mx-rcnn/rcnn/dataset/kitti.py", line 29, in __init__
+    self.image_set_index = self.load_image_set_index()
+  File "/home/hustxly/Car/mx-rcnn/rcnn/dataset/kitti.py", line 39, in load_image_set_index
+    assert os.path.exists(image_set_index_file), 'Path does not exist: {}'.format(image_set_index_file)
+AssertionError: Path does not exist: data/kitti/imglists/train_ry_alpha_car_only.lst
+{'EPS': 1e-14,
+ 'IMAGE_STRIDE': 0,
+ 'PIXEL_MEANS': array([[[ 123.68 ,  116.779,  103.939]]]),
+ 'SCALES': [(600, 1000)],
+ 'TEST': {'BATCH_IMAGES': 1,
+          'HAS_RPN': False,
+          'NMS': 0.3,
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000},
+ 'TRAIN': {'BATCH_IMAGES': 1,
+           'BATCH_ROIS': 128,
+           'BBOX_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZATION_PRECOMPUTED': True,
+           'BBOX_REGRESSION_THRESH': 0.5,
+           'BBOX_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_WEIGHTS': array([ 1.,  1.,  1.,  1.]),
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'END2END': True,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'RPN_BATCH_SIZE': 256,
+           'RPN_BBOX_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 16,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 6000,
+           'RPN_PRE_NMS_TOP_N': 12000}}
+Traceback (most recent call last):
+  File "train_end2end.py", line 186, in <module>
+    lr=args.lr, lr_step=args.lr_step)
+  File "train_end2end.py", line 43, in train_net
+    imdb = eval(args.dataset)(args.image_set, args.root_path, args.dataset_path)
+  File "/home/hustxly/Car/mx-rcnn/rcnn/dataset/kitti.py", line 29, in __init__
+    self.image_set_index = self.load_image_set_index()
+  File "/home/hustxly/Car/mx-rcnn/rcnn/dataset/kitti.py", line 39, in load_image_set_index
+    assert os.path.exists(image_set_index_file), 'Path does not exist: {}'.format(image_set_index_file)
+AssertionError: Path does not exist: data/kitti/imglists/train_ry_alpha_car_only.lst
+{'EPS': 1e-14,
+ 'IMAGE_STRIDE': 0,
+ 'PIXEL_MEANS': array([[[ 123.68 ,  116.779,  103.939]]]),
+ 'SCALES': [(600, 1000)],
+ 'TEST': {'BATCH_IMAGES': 1,
+          'HAS_RPN': False,
+          'NMS': 0.3,
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000},
+ 'TRAIN': {'BATCH_IMAGES': 1,
+           'BATCH_ROIS': 128,
+           'BBOX_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZATION_PRECOMPUTED': True,
+           'BBOX_REGRESSION_THRESH': 0.5,
+           'BBOX_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_WEIGHTS': array([ 1.,  1.,  1.,  1.]),
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'END2END': True,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'RPN_BATCH_SIZE': 256,
+           'RPN_BBOX_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 16,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 6000,
+           'RPN_PRE_NMS_TOP_N': 12000}}
+num_images 3424
+kitti_train_ry_alpha_car_only gt roidb loaded from data/cache/kitti_train_ry_alpha_car_only_gt_roidb.pkl
+append flipped images to roidb
+Traceback (most recent call last):
+  File "train_end2end.py", line 186, in <module>
+    lr=args.lr, lr_step=args.lr_step)
+  File "train_end2end.py", line 46, in train_net
+    roidb = imdb.append_flipped_images(roidb)
+  File "/home/hustxly/Car/mx-rcnn/rcnn/dataset/imdb.py", line 158, in append_flipped_images
+    assert self.num_images == len(roidb)
+AssertionError
+{'EPS': 1e-14,
+ 'IMAGE_STRIDE': 0,
+ 'PIXEL_MEANS': array([[[ 123.68 ,  116.779,  103.939]]]),
+ 'SCALES': [(600, 1000)],
+ 'TEST': {'BATCH_IMAGES': 1,
+          'HAS_RPN': False,
+          'NMS': 0.3,
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000},
+ 'TRAIN': {'BATCH_IMAGES': 1,
+           'BATCH_ROIS': 128,
+           'BBOX_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZATION_PRECOMPUTED': True,
+           'BBOX_REGRESSION_THRESH': 0.5,
+           'BBOX_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_WEIGHTS': array([ 1.,  1.,  1.,  1.]),
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'END2END': True,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'RPN_BATCH_SIZE': 256,
+           'RPN_BBOX_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 16,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 6000,
+           'RPN_PRE_NMS_TOP_N': 12000}}
+num_images 3424
+kitti_train_ry_alpha_car_only gt roidb loaded from data/cache/kitti_train_ry_alpha_car_only_gt_roidb.pkl
+append flipped images to roidb
+600
+providing maximum shape [('data', (1, 3, 1000, 1000)), ('gt_boxes', (1, 100, 5))] [('label', (1, 34596)), ('bbox_target', (1, 36, 62, 62)), ('bbox_weight', (1, 36, 62, 62))]
+output shape
+{'bbox_loss_reshape_output': (1L, 128L, 84L),
+ 'blockgrad0_output': (1L, 128L),
+ 'cls_prob_reshape_output': (1L, 128L, 21L),
+ 'rpn_bbox_loss_output': (1L, 36L, 18L, 62L),
+ 'rpn_cls_prob_output': (1L, 2L, 162L, 62L)}
+arg shape
+{'bbox_pred_bias': (84L,),
+ 'bbox_pred_weight': (84L, 4096L),
+ 'bbox_target': (1L, 36L, 18L, 62L),
+ 'bbox_weight': (1L, 36L, 18L, 62L),
+ 'cls_score_bias': (21L,),
+ 'cls_score_weight': (21L, 4096L),
+ 'conv1_1_bias': (64L,),
+ 'conv1_1_weight': (64L, 3L, 3L, 3L),
+ 'conv1_2_bias': (64L,),
+ 'conv1_2_weight': (64L, 64L, 3L, 3L),
+ 'conv2_1_bias': (128L,),
+ 'conv2_1_weight': (128L, 64L, 3L, 3L),
+ 'conv2_2_bias': (128L,),
+ 'conv2_2_weight': (128L, 128L, 3L, 3L),
+ 'conv3_1_bias': (256L,),
+ 'conv3_1_weight': (256L, 128L, 3L, 3L),
+ 'conv3_2_bias': (256L,),
+ 'conv3_2_weight': (256L, 256L, 3L, 3L),
+ 'conv3_3_bias': (256L,),
+ 'conv3_3_weight': (256L, 256L, 3L, 3L),
+ 'conv4_1_bias': (512L,),
+ 'conv4_1_weight': (512L, 256L, 3L, 3L),
+ 'conv4_2_bias': (512L,),
+ 'conv4_2_weight': (512L, 512L, 3L, 3L),
+ 'conv4_3_bias': (512L,),
+ 'conv4_3_weight': (512L, 512L, 3L, 3L),
+ 'conv5_1_bias': (512L,),
+ 'conv5_1_weight': (512L, 512L, 3L, 3L),
+ 'conv5_2_bias': (512L,),
+ 'conv5_2_weight': (512L, 512L, 3L, 3L),
+ 'conv5_3_bias': (512L,),
+ 'conv5_3_weight': (512L, 512L, 3L, 3L),
+ 'data': (1L, 3L, 302L, 1000L),
+ 'fc6_bias': (4096L,),
+ 'fc6_weight': (4096L, 25088L),
+ 'fc7_bias': (4096L,),
+ 'fc7_weight': (4096L, 4096L),
+ 'gt_boxes': (1L, 1L, 5L),
+ 'im_info': (1L, 3L),
+ 'label': (1L, 10044L),
+ 'rpn_bbox_pred_bias': (36L,),
+ 'rpn_bbox_pred_weight': (36L, 512L, 1L, 1L),
+ 'rpn_cls_score_bias': (18L,),
+ 'rpn_cls_score_weight': (18L, 512L, 1L, 1L),
+ 'rpn_conv_3x3_bias': (512L,),
+ 'rpn_conv_3x3_weight': (512L, 512L, 3L, 3L)}
+aux shape
+{}
+[05:23:01] src/operator/./cudnn_convolution-inl.h:55: Running performance tests to find the best convolution algorithm, this can take a while...
+INFO:root:Epoch[1] Batch [20]	Speed: 1.39 samples/sec	Train-RPNAcc=0.517485,	RPNLogLoss=0.698584,	RPNL1Loss=0.539159,	RCNNAcc=0.219866,	RCNNLogLoss=2.786236,	RCNNL1Loss=0.287172,	
