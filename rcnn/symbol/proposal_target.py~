@@ -7,7 +7,7 @@ import numpy as np
 
 from rcnn.core.minibatch import sample_rois
 
-DEBUG = True
+DEBUG = False
 
 
 class ProposalTargetOperator(mx.operator.CustomOp):
