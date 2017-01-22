@@ -37,27 +37,23 @@ class Detector(object):
 
         # fill in label
         arg_shapes_dict = {name: shape for name, shape in zip(self.symbol.list_arguments(), arg_shapes)}
+        print arg_shapes_dict
         self.arg_params['cls_prob_label'] = mx.nd.zeros(arg_shapes_dict['cls_prob_label'], self.ctx)
 
-        print 'to executor'
         # execute
         self.executor = self.symbol.bind(self.ctx, self.arg_params, args_grad=None,
                                          grad_req='null', aux_states=self.aux_params)
         output_dict = {name: nd for name, nd in zip(self.symbol.list_outputs(), self.executor.outputs)}
+        print output_dict
         self.executor.forward(is_train=False)
-
-        print 'forward done'
 
         # save output
         scores = output_dict['cls_prob_reshape_output'].asnumpy()[0]
         bbox_deltas = output_dict['bbox_pred_reshape_output'].asnumpy()[0]
-
         if config.TEST.HAS_RPN:
             rois = output_dict['rois_output'].asnumpy()[:, 1:]
         else:
             rois = roi_array[:, 1:]
-
-        print 'save output done'
 
         # post processing
         pred_boxes = bbox_pred(rois, bbox_deltas)

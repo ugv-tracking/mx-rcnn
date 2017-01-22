@@ -1,0 +1,4 @@
+kitti   easy    medium  hard
+car     0.934594545455  0.870937545455  0.776354727273
+kitti   easy    medium  hard
+car     0.906682909091  0.842003727273  0.74552

@@ -85,6 +85,7 @@ class TestLoader(mx.io.DataIter):
             data, label, im_info = minibatch.get_rcnn_testbatch(roidb)
         self.data = [mx.nd.array(data[name]) for name in self.data_name]
         self.label = [mx.nd.array(label[name]) for name in self.label_name]
+
         self.im_info = im_info
 
 
@@ -116,7 +117,7 @@ class ROIIter(mx.io.DataIter):
 
         # decide data and label names (only for training)
         self.data_name = ['data', 'rois']
-        self.label_name = ['label', 'bbox_target', 'bbox_weight']
+        self.label_name = ['label', 'bbox_target', 'bbox_inside_weight', 'bbox_outside_weight']
 
         # status variable for synchronization between get_data and get_label
         self.cur = 0
@@ -235,9 +236,12 @@ class AnchorLoader(mx.io.DataIter):
         # decide data and label names
         if config.TRAIN.END2END:
             self.data_name = ['data', 'im_info', 'gt_boxes']
+
+            if config.TRAIN.ORIENTATION:
+                 self.data_name = ['data', 'im_info', 'gt_boxes', 'orientation_ry', 'orientation_alpha']
         else:
             self.data_name = ['data']
-        self.label_name = ['label', 'bbox_target', 'bbox_weight']
+        self.label_name = ['label', 'bbox_target', 'bbox_inside_weight', 'bbox_outside_weight']
 
         # status variable for synchronization between get_data and get_label
         self.cur = 0
@@ -286,21 +290,22 @@ class AnchorLoader(mx.io.DataIter):
 
     def infer_shape(self, max_data_shape=None, max_label_shape=None):
         """ Return maximum data and label shape for single gpu """
+
         if max_data_shape is None:
             max_data_shape = []
         if max_label_shape is None:
             max_label_shape = []
         max_shapes = dict(max_data_shape + max_label_shape)
-        input_batch_size = max_shapes['data'][0]
         im_info = [[max_shapes['data'][2], max_shapes['data'][3], 1.0]]
         _, feat_shape, _ = self.feat_sym.infer_shape(**max_shapes)
         label = minibatch.assign_anchor(feat_shape[0], np.zeros((0, 5)), im_info,
                                         self.feat_stride, self.anchor_scales, self.anchor_ratios, self.allowed_border)
         label = [label[k] for k in self.label_name]
-        label_shape = [(k, tuple([input_batch_size] + list(v.shape[1:]))) for k, v in zip(self.label_name, label)]
+        label_shape = [(k, v.shape) for k, v in zip(self.label_name, label)]
         return max_data_shape, label_shape
 
     def get_batch(self):
+        
         # slice roidb
         cur_from = self.cur
         cur_to = min(cur_from + self.batch_size, self.size)
@@ -324,10 +329,13 @@ class AnchorLoader(mx.io.DataIter):
             data_list.append(data)
             label_list.append(label)
 
+
         # pad data first and then assign anchor (read label)
         data_tensor = tensor_vstack([batch['data'] for batch in data_list])
         for data, data_pad in zip(data_list, data_tensor):
             data['data'] = data_pad[np.newaxis, :]
+
+       
 
         new_label_list = []
         for data, label in zip(data_list, label_list):
@@ -339,6 +347,10 @@ class AnchorLoader(mx.io.DataIter):
 
             # add gt_boxes to data for e2e
             data['gt_boxes'] = label['gt_boxes'][np.newaxis, :, :]
+
+            if config.TRAIN.ORIENTATION:
+                data['orientation_ry'] = label['orientation_ry']
+                data['orientation_alpha'] = label['orientation_alpha']
 
             # assign anchor for label
             label = minibatch.assign_anchor(feat_shape, label['gt_boxes'], data['im_info'],

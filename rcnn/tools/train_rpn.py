@@ -21,15 +21,16 @@ def train_rpn(args, ctx, pretrained, epoch, prefix, begin_epoch, end_epoch,
     logger.setLevel(logging.INFO)
 
     # setup config
-    config.TRAIN.BATCH_IMAGES = 1
+    config.TRAIN.HAS_RPN = True
+    config.TRAIN.BATCH_SIZE = 1
 
     # load symbol
     sym = eval('get_' + args.network + '_rpn')()
     feat_sym = get_vgg_rpn().get_internals()['rpn_cls_score_output']
 
     # setup multi-gpu
-    batch_size = len(ctx)
-    input_batch_size = config.TRAIN.BATCH_IMAGES * batch_size
+    config.TRAIN.BATCH_IMAGES *= len(ctx)
+    config.TRAIN.BATCH_SIZE *= len(ctx)
 
     # print config
     pprint.pprint(config)
@@ -41,11 +42,13 @@ def train_rpn(args, ctx, pretrained, epoch, prefix, begin_epoch, end_epoch,
         roidb = imdb.append_flipped_images(roidb)
 
     # load training data
-    train_data = AnchorLoader(feat_sym, roidb, batch_size=input_batch_size, shuffle=True,
-                              ctx=ctx, work_load_list=args.work_load_list)
+    train_data = AnchorLoader(feat_sym, roidb, batch_size=config.TRAIN.BATCH_SIZE, shuffle=True,
+                              ctx=ctx, work_load_list=args.work_load_list,
+                              feat_stride=config.RPN_FEAT_STRIDE, anchor_scales=config.ANCHOR_SCALES,
+                              anchor_ratios=config.ANCHOR_RATIOS)
 
     # infer max shape
-    max_data_shape = [('data', (input_batch_size, 3, 1000, 1000))]
+    max_data_shape = [('data', (config.TRAIN.BATCH_IMAGES, 3, max([v[0] for v in config.SCALES]), max([v[1] for v in config.SCALES])))]
     max_data_shape, max_label_shape = train_data.infer_shape(max_data_shape)
     print 'providing maximum shape', max_data_shape, max_label_shape
 
@@ -86,9 +89,9 @@ def train_rpn(args, ctx, pretrained, epoch, prefix, begin_epoch, end_epoch,
     data_names = [k[0] for k in train_data.provide_data]
     label_names = [k[0] for k in train_data.provide_label]
     if finetune:
-        fixed_param_prefix = ['conv1', 'conv2', 'conv3', 'conv4', 'conv5']
+        fixed_param_prefix = config.FIXED_PARAMS_FINETUNE
     else:
-        fixed_param_prefix = ['conv1', 'conv2']
+        fixed_param_prefix = config.FIXED_PARAMS
     mod = MutableModule(sym, data_names=data_names, label_names=label_names,
                         logger=logger, context=ctx, work_load_list=args.work_load_list,
                         max_data_shapes=max_data_shape, max_label_shapes=max_label_shape,
@@ -110,7 +113,7 @@ def train_rpn(args, ctx, pretrained, epoch, prefix, begin_epoch, end_epoch,
                         'wd': 0.0005,
                         'learning_rate': lr,
                         'lr_scheduler': mx.lr_scheduler.FactorScheduler(lr_step, 0.1),
-                        'rescale_grad': (1.0 / batch_size)}
+                        'rescale_grad': (1.0 / config.TRAIN.BATCH_SIZE)}
 
     # train
     mod.fit(train_data, eval_metric=eval_metrics, epoch_end_callback=epoch_end_callback,

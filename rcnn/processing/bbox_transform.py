@@ -79,6 +79,7 @@ def clip_boxes(boxes, im_shape):
     :param im_shape: tuple of 2
     :return: [N, 4* num_classes]
     """
+
     # x1 >= 0
     boxes[:, 0::4] = np.maximum(np.minimum(boxes[:, 0::4], im_shape[1] - 1), 0)
     # y1 >= 0

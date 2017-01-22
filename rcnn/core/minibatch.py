@@ -40,6 +40,7 @@ from ..processing.generate_anchor import generate_anchors
 
 
 def get_image(roidb):
+    
     """
     preprocess image and return processed roidb
     :param roidb: a list of roidb
@@ -55,6 +56,7 @@ def get_image(roidb):
     for i in range(num_images):
         roi_rec = roidb[i]
         assert os.path.exists(roi_rec['image']), '%s does not exist'.format(roi_rec['image'])
+
         im = cv2.imread(roi_rec['image'])
         if roidb[i]['flipped']:
             im = im[:, ::-1, :]
@@ -68,6 +70,10 @@ def get_image(roidb):
         im_info = [im_tensor.shape[2], im_tensor.shape[3], im_scale]
         new_rec['boxes'] = roi_rec['boxes'].copy() * im_scale
         new_rec['im_info'] = im_info
+        if config.TRAIN.ORIENTATION:
+            new_rec['orientation_ry'] = roi_rec['orientation_ry']
+            new_rec['orientation_alpha'] = roi_rec['orientation_alpha']
+
         processed_roidb.append(new_rec)
     return processed_ims, processed_roidb
 
@@ -124,6 +130,9 @@ def get_rpn_batch(roidb):
     im_array = imgs[0]
     im_info = np.array([roidb[0]['im_info']], dtype=np.float32)
 
+    orientation_ry = np.array([roidb[0]['orientation_ry']], dtype=np.float32)
+    orientation_alpha = np.array([roidb[0]['orientation_alpha']], dtype=np.float32)
+
     # gt boxes: (x1, y1, x2, y2, cls)
     if roidb[0]['gt_classes'].size > 0:
         gt_inds = np.where(roidb[0]['gt_classes'] != 0)[0]
@@ -135,7 +144,8 @@ def get_rpn_batch(roidb):
 
     data = {'data': im_array,
             'im_info': im_info}
-    label = {'gt_boxes': gt_boxes}
+
+    label = {'gt_boxes': gt_boxes, 'orientation_ry': orientation_ry, 'orientation_alpha': orientation_alpha}
 
     return data, label
 
@@ -159,7 +169,7 @@ def get_rcnn_batch(roidb):
     rois_array = list()
     labels_array = list()
     bbox_targets_array = list()
-    bbox_weights_array = list()
+    bbox_inside_array = list()
 
     for im_i in range(num_images):
         roi_rec = roidb[im_i]
@@ -173,7 +183,7 @@ def get_rcnn_batch(roidb):
         overlaps = roi_rec['max_overlaps']
         bbox_targets = roi_rec['bbox_targets']
 
-        im_rois, labels, bbox_targets, bbox_weights = \
+        im_rois, labels, bbox_targets, bbox_inside_weights = \
             sample_rois(rois, fg_rois_per_image, rois_per_image, num_classes,
                         labels, overlaps, bbox_targets)
 
@@ -187,18 +197,20 @@ def get_rcnn_batch(roidb):
         # add labels
         labels_array.append(labels)
         bbox_targets_array.append(bbox_targets)
-        bbox_weights_array.append(bbox_weights)
+        bbox_inside_array.append(bbox_inside_weights)
 
     rois_array = np.array(rois_array)
     labels_array = np.array(labels_array)
     bbox_targets_array = np.array(bbox_targets_array)
-    bbox_weights_array = np.array(bbox_weights_array)
+    bbox_inside_array = np.array(bbox_inside_array)
+    bbox_outside_array = np.array(bbox_inside_array > 0).astype(np.float32)
 
     data = {'data': im_array,
             'rois': rois_array}
     label = {'label': labels_array,
              'bbox_target': bbox_targets_array,
-             'bbox_weight': bbox_weights_array}
+             'bbox_inside_weight': bbox_inside_array,
+             'bbox_outside_weight': bbox_outside_array}
 
     return data, label
 
@@ -218,7 +230,7 @@ def _compute_targets(ex_rois, gt_rois):
 
 
 def sample_rois(rois, fg_rois_per_image, rois_per_image, num_classes,
-                labels=None, overlaps=None, bbox_targets=None, gt_boxes=None):
+                labels=None, overlaps=None, bbox_targets=None, gt_boxes=None ,orientation_ry=None, orientation_alpha=None):
     """
     generate random sample of ROIs comprising foreground and background examples
     :param rois: all_rois [n, 4]; e2e: [n, 5] with batch_index
@@ -229,8 +241,9 @@ def sample_rois(rois, fg_rois_per_image, rois_per_image, num_classes,
     :param overlaps: maybe precomputed (max_overlaps)
     :param bbox_targets: maybe precomputed
     :param gt_boxes: optional for e2e [n, 5] (x1, y1, x2, y2, cls)
-    :return: (labels, rois, bbox_targets, bbox_weights)
+    :return: (labels, rois, bbox_targets, bbox_inside_weights)
     """
+
     if labels is None:
         overlaps = bbox_overlaps(rois[:, 1:].astype(np.float), gt_boxes[:, :4].astype(np.float))
         gt_assignment = overlaps.argmax(axis=1)
@@ -256,7 +269,7 @@ def sample_rois(rois, fg_rois_per_image, rois_per_image, num_classes,
 
     # indexes selected
     keep_indexes = np.append(fg_indexes, bg_indexes)
-
+   
     # pad more to ensure a fixed minibatch size
     while keep_indexes.shape[0] < rois_per_image:
         gap = np.minimum(len(rois), rois_per_image - keep_indexes.shape[0])
@@ -279,10 +292,32 @@ def sample_rois(rois, fg_rois_per_image, rois_per_image, num_classes,
                        / np.array(config.TRAIN.BBOX_STDS))
         bbox_target_data = np.hstack((labels[:, np.newaxis], targets))
 
-    bbox_targets, bbox_weights = \
+    bbox_targets, bbox_inside_weights = \
         expand_bbox_regression_targets(bbox_target_data, num_classes)
 
-    return rois, labels, bbox_targets, bbox_weights
+
+    ######################################
+
+    ry_margin = 2 * config.PI / config.RY_CLASSES
+    orientation_ry_targets   = np.zeros((len(rois), 1), dtype=np.float32)
+    orientation_alpha_targets = np.zeros((len(rois), 1), dtype=np.float32)
+    orientation_weight        = np.zeros((len(rois), 1), dtype=np.float32)
+
+    if orientation_ry is not None:
+        gt_assignment_keep_indexes = gt_assignment[keep_indexes]
+
+        for index in xrange(fg_rois_per_this_image):
+            src_orientation_ry = orientation_ry[gt_assignment_keep_indexes[index]]
+            #orientation_ry_targets[index, 0] = int((src_orientation_ry + config.PI) / ry_margin)
+            orientation_ry_targets[index, 0] = src_orientation_ry
+
+            src_orientation_alpha = orientation_alpha[gt_assignment_keep_indexes[index]]
+            #orientation_alpha_targets[index, 0] = int((src_orientation_alpha + config.PI) / ry_margin)
+            orientation_alpha_targets[index, 0] = src_orientation_alpha
+
+            orientation_weight[index, 0] = 1
+
+    return rois, labels, bbox_targets, bbox_inside_weights, orientation_ry_targets, orientation_alpha_targets, orientation_weight
 
 
 def assign_anchor(feat_shape, gt_boxes, im_info, feat_stride=16,
@@ -413,8 +448,21 @@ def assign_anchor(feat_shape, gt_boxes, im_info, feat_stride=16,
     if gt_boxes.size > 0:
         bbox_targets[:] = _compute_targets(anchors, gt_boxes[argmax_overlaps, :])
 
-    bbox_weights = np.zeros((len(inds_inside), 4), dtype=np.float32)
-    bbox_weights[labels == 1, :] = np.array(config.TRAIN.RPN_BBOX_WEIGHTS)
+    bbox_inside_weights = np.zeros((len(inds_inside), 4), dtype=np.float32)
+    bbox_inside_weights[labels == 1, :] = np.array(config.TRAIN.RPN_BBOX_INSIDE_WEIGHTS)
+
+    bbox_outside_weights = np.zeros((len(inds_inside), 4), dtype=np.float32)
+    if config.TRAIN.RPN_POSITIVE_WEIGHT < 0:
+        # uniform weighting of exampling (given non-uniform sampling)
+        num_examples = np.sum(labels >= 0)
+        positive_weights = np.ones((1, 4)) * 1.0 / num_examples
+        negative_weights = np.ones((1, 4)) * 1.0 / num_examples
+    else:
+        assert ((config.TRAIN.RPN_POSTIVE_WEIGHT > 0) & (config.TRAIN.RPN_POSTIVE_WEIGHT < 1))
+        positive_weights = config.TRAIN.RPN_POSTIVE_WEIGHT / np.sum(labels == 1)
+        negative_weights = (1.0 - config.TRAIN.RPN_POSTIVE_WEIGHT) / np.sum(labels == 1)
+    bbox_outside_weights[labels == 1, :] = positive_weights
+    bbox_outside_weights[labels == 0, :] = negative_weights
 
     if DEBUG:
         _sums = bbox_targets[labels == 1, :].sum(axis=0)
@@ -428,7 +476,8 @@ def assign_anchor(feat_shape, gt_boxes, im_info, feat_stride=16,
     # map up to original set of anchors
     labels = _unmap(labels, total_anchors, inds_inside, fill=-1)
     bbox_targets = _unmap(bbox_targets, total_anchors, inds_inside, fill=0)
-    bbox_weights = _unmap(bbox_weights, total_anchors, inds_inside, fill=0)
+    bbox_inside_weights = _unmap(bbox_inside_weights, total_anchors, inds_inside, fill=0)
+    bbox_outside_weights = _unmap(bbox_outside_weights, total_anchors, inds_inside, fill=0)
 
     if DEBUG:
         print 'rpn: max max_overlaps', np.max(max_overlaps)
@@ -443,9 +492,11 @@ def assign_anchor(feat_shape, gt_boxes, im_info, feat_stride=16,
     labels = labels.reshape((1, feat_height, feat_width, A)).transpose(0, 3, 1, 2)
     labels = labels.reshape((1, A * feat_height * feat_width))
     bbox_targets = bbox_targets.reshape((1, feat_height, feat_width, A * 4)).transpose(0, 3, 1, 2)
-    bbox_weights = bbox_weights.reshape((1, feat_height, feat_width, A * 4)).transpose((0, 3, 1, 2))
+    bbox_inside_weights = bbox_inside_weights.reshape((1, feat_height, feat_width, A * 4)).transpose((0, 3, 1, 2))
+    bbox_outside_weights = bbox_outside_weights.reshape((1, feat_height, feat_width, A * 4)).transpose((0, 3, 1, 2))
 
     label = {'label': labels,
              'bbox_target': bbox_targets,
-             'bbox_weight': bbox_weights}
+             'bbox_inside_weight': bbox_inside_weights,
+             'bbox_outside_weight': bbox_outside_weights}
     return label

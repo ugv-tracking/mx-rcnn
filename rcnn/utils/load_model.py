@@ -52,8 +52,17 @@ def load_param(prefix, epoch, convert=False, ctx=None, process=False):
             ctx = mx.cpu()
         arg_params = convert_context(arg_params, ctx)
         aux_params = convert_context(aux_params, ctx)
+
+    tests = [k for k in arg_params.keys()]
+    print tests, ' ', len(tests)
+
     if process:
         tests = [k for k in arg_params.keys() if '_test' in k]
         for test in tests:
             arg_params[test.replace('_test', '')] = arg_params.pop(test)
+            print arg_params[test.replace('_test', '')]
+
+    tests = [k for k in arg_params.keys()]
+    print tests, ' ', len(tests)
+
     return arg_params, aux_params

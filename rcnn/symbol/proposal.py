@@ -35,10 +35,6 @@ class ProposalOperator(mx.operator.CustomOp):
             print self._anchors
 
     def forward(self, is_train, req, in_data, out_data, aux):
-        batch_size = in_data[0].shape[0]
-        if batch_size > 1:
-            raise ValueError("Sorry, multiple images each device is not implemented")
-
         # for each (H, W) location i
         #   generate A anchor boxes centered on cell i
         #   apply predicted bbox deltas at cell i to each of the A anchors
@@ -49,7 +45,7 @@ class ProposalOperator(mx.operator.CustomOp):
         # apply NMS with threshold 0.7 to remaining proposals
         # take after_nms_topN proposals after NMS
         # return the top proposals (-> RoIs top, scores top)
-
+        
         pre_nms_topN = self._rpn_pre_nms_top_n
         post_nms_topN = self._rpn_post_nms_top_n
         nms_thresh = self._threshold
@@ -209,6 +205,9 @@ class ProposalProp(mx.operator.CustomOpProp):
         assert cls_prob_shape[0] == bbox_pred_shape[0], 'ROI number does not equal in cls and reg'
 
         batch_size = cls_prob_shape[0]
+        #if batch_size > 1:
+        #    raise ValueError("Only single item batches are supported")
+
         im_info_shape = (batch_size, 3)
         output_shape = (self._rpn_post_nms_top_n, 5)
         score_shape = (self._rpn_post_nms_top_n, 1)

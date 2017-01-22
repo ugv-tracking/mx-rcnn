@@ -53,7 +53,7 @@ class PascalVOC(IMDB):
         find out which indexes correspond to given image set (train or val)
         :return:
         """
-        image_set_index_file = os.path.join(self.data_path, 'ImageSets', 'Main', self.image_set + '.txt')
+        image_set_index_file = os.path.join(self.root_path, self.data_path, 'ImageSets', 'Main', self.image_set + '.txt')
         assert os.path.exists(image_set_index_file), 'Path does not exist: {}'.format(image_set_index_file)
         with open(image_set_index_file) as f:
             image_set_index = [x.strip() for x in f.readlines()]
@@ -65,7 +65,7 @@ class PascalVOC(IMDB):
         :param index: index of a specific image
         :return: full path of this image
         """
-        image_file = os.path.join(self.data_path, 'JPEGImages', index + '.jpg')
+        image_file = os.path.join(self.root_path, self.data_path, 'JPEGImages', index + '.jpg')
         assert os.path.exists(image_file), 'Path does not exist: {}'.format(image_file)
         return image_file
 
@@ -101,7 +101,7 @@ class PascalVOC(IMDB):
         roi_rec['height'] = size[0]
         roi_rec['width'] = size[1]
 
-        filename = os.path.join(self.data_path, 'Annotations', index + '.xml')
+        filename = os.path.join(self.root_path, self.data_path, 'Annotations', index + '.xml')
         tree = ET.parse(filename)
         objs = tree.findall('object')
         if not self.config['use_diff']:

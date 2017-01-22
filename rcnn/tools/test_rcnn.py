@@ -2,7 +2,7 @@ import argparse
 import os
 import mxnet as mx
 
-#from rcnn.config import config
+from rcnn.config import config
 from ..symbol import *
 from ..dataset import *
 from ..core.loader import TestLoader
