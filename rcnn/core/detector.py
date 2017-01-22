@@ -37,14 +37,16 @@ class Detector(object):
 
         # fill in label
         arg_shapes_dict = {name: shape for name, shape in zip(self.symbol.list_arguments(), arg_shapes)}
-        print arg_shapes_dict
+        #print arg_shapes_dict
         self.arg_params['cls_prob_label'] = mx.nd.zeros(arg_shapes_dict['cls_prob_label'], self.ctx)
+        self.arg_params['orientation_pred_weight'] = mx.nd.zeros(arg_shapes_dict['orientation_pred_weight'], self.ctx)
+        self.arg_params['orientation_pred_bias'] = mx.nd.zeros(arg_shapes_dict['orientation_pred_bias'], self.ctx)
 
         # execute
         self.executor = self.symbol.bind(self.ctx, self.arg_params, args_grad=None,
                                          grad_req='null', aux_states=self.aux_params)
         output_dict = {name: nd for name, nd in zip(self.symbol.list_outputs(), self.executor.outputs)}
-        print output_dict
+        #print output_dict
         self.executor.forward(is_train=False)
 
         # save output
@@ -59,4 +61,5 @@ class Detector(object):
         pred_boxes = bbox_pred(rois, bbox_deltas)
         pred_boxes = clip_boxes(pred_boxes, im_array[0].shape[-2:])
 
+        print "pred done"
         return scores, pred_boxes
